@@ -1,0 +1,13 @@
+
+
+실행하려면 해야할 것 :
+1. npm install
+2. npm start
+
+
+
+사용한 모듈 : 
+<React icon>
+npm install react-icons --save   // 안해도 됨
+<React Router>
+npm install react-router-dom --save   // 안해도 됨

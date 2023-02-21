@@ -28,11 +28,11 @@ function KakaoMap() {
         }
 
         const map = new kakao.maps.Map(mapContainer, mapOption) // 지도 생성 및 객체 리턴
-        
+
         // 마커 표시
         const imageSrc = './marker.png'
         const imageSize = new kakao.maps.Size(60, 70) // 마커 이미지의 크기
-        const imageOption = {offset: new kakao.maps.Point(27, 69)} // 마커 이미지의 옵션
+        const imageOption = { offset: new kakao.maps.Point(27, 69) } // 마커 이미지의 옵션
         // 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정한다.
 
         const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption) // 마커이미지 생성
@@ -56,18 +56,18 @@ function KakaoMap() {
             },
         ]
 
-        for (var i = 0; i < markerPositions.length; i ++) {
+        for (var i = 0; i < markerPositions.length; i++) {
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
                 position: markerPositions[i].latlng, // 마커를 표시할 위치
-                title : markerPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                image : markerImage // 마커 이미지 
+                title: markerPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                image: markerImage // 마커 이미지 
             })
         }
 
         marker.setMap(map); // 마커가 지도위에 표시되도록.
 
-        
+
     }, [position])
 
 
@@ -75,7 +75,7 @@ function KakaoMap() {
     return (
         <div id="kakaoMap">
             <button onClick={getPosition}>현위치</button>
-            <div id="map" style={{ width: '1200px', height: '600px' }}></div>
+            <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
         </div>
     )
 }
