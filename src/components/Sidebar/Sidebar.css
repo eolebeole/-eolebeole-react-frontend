@@ -1,0 +1,76 @@
+/* SidebarContainer를 지도 안에 넣기 */
+
+.SidebarContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    right: 0px;
+}
+
+/* 버튼 CSS */
+#menuBtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 30px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* 탭 메뉴 가로로 배열*/
+.sidebar {
+    transition: all 0.5s;
+    background-color: rgb(225, 20, 20);
+    display: flex;
+    position: relative;
+    z-index: 5;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    width: 300px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.bars {
+    position: absolute;
+    left: 5px;
+}
+
+.set {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 250px;
+}
+
+.MyMap,
+.MatMate,
+.GuestBook {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 100px;
+    color: rgb(25, 116, 33);
+    overflow: hidden;
+}
+
+#link:hover {
+    background: rgb(37, 164, 48);
+    transition: all 0.5s;
+}
+
+.active {
+    background: rgb(37, 164, 48);
+    font-size: 25px;
+}
+
+.icon,
+.link_text {
+    font-size: 15px;
+}
