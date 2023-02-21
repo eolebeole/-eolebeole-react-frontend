@@ -1,0 +1,7 @@
+설치해야하는 모듈 : 
+
+<React icon>
+npm install react-icons --save
+
+<React Router>
+npm install react-router-dom --save
