@@ -1,8 +1,13 @@
-import React from 'react';
+import { React, useState } from 'react';
 
-function MyRestaurant() {
+import { FaBars } from 'react-icons/fa';
+
+function MyRestaurant(props) {
     return (
         <div>
+            <div className="bars">
+                <FaBars onClick={() => props.setToggleTab(0)} />
+            </div>
             <h3>MyRestaurant page</h3>
         </div>
     );

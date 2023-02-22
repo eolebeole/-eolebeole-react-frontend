@@ -1,6 +1,6 @@
 #plusBtn {
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     right: 10px;
     top: 45px;
     display: flex;

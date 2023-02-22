@@ -11,23 +11,47 @@ import './Sidebar.css';
 
 
 function Sidebar() {
-    const [toggleTab, setToggleTab] = useState("");
+    const [toggleTab, setToggleTab] = useState(0);
     function Contents() {
-        if (toggleTab === 0) {
+        if (toggleTab === 1) {
             return (
-                <></>
+                <div>
+                    <button>알림</button>
+                    <div className="bars">
+                        <FaBars onClick={() => setToggleTab(0)} />
+                    </div>
+                    <div className="profile">
+                        <img id="profileImage" src="./img/profile.png" alt="프로필사진" />
+                        <h3>얼레벌레</h3>
+                    </div>
+                    <div className="tabs">
+                        <div className="MyRestaurant">
+                            <div className="icon"><FaTh onClick={() => setToggleTab(2)} /></div>
+                            <div className="link_text">나의맛집</div>
+                        </div>
+                        <div className="MatMate">
+                            <div className="icon"><FaUserAlt onClick={() => setToggleTab(3)} /></div>
+                            <div className="link_text">맛메이트</div>
+                        </div>
+                        <div className="GuestBook">
+                            <div className="icon"><FaCommentAlt onClick={() => setToggleTab(4)} /></div>
+                            <div className="link_text">방명록</div>
+                        </div>
+                    </div>
+                    <button>설정</button>
+                </div >
             );
-        } else if (toggleTab === 1) {
-            return (
-                <MyRestaurant />
-            )
         } else if (toggleTab === 2) {
             return (
-                <MatMate />
+                <MyRestaurant setToggleTab={setToggleTab} />
             )
         } else if (toggleTab === 3) {
             return (
-                <GuestBook />
+                <MatMate toggleTab={toggleTab} setToggleTab={setToggleTab} />
+            )
+        } else if (toggleTab === 4) {
+            return (
+                <GuestBook {...{ toggleTab, setToggleTab }} />
             )
         } else return <></>
     }
@@ -36,23 +60,8 @@ function Sidebar() {
 
     return (
         <div className="SidebarContainer">
-            <img id="menuBtn" src="./img/menuBtn.png" alt="메뉴" onClick={() => setToggleTab(0)} />
-            <div className="sidebar" style={{ width: toggleTab === 0 ? "500px" : "0px " }}>
-                <div>
-                    <button>알림</button>
-                    <button>설정</button>
-                </div>
-                <div className="top_section">
-                    <div className="bars">
-                        <FaBars onClick={() => setToggleTab("")} />
-                    </div>
-                </div>
-                <div className="profile">
-                    <img id="profileImage" src="./img/profile.png" alt="프로필사진" />
-                    <h3>얼레벌레</h3>
-                </div>
-            </div>
-            <div className="content">
+            <img id="menuBtn" src="./img/menuBtn.png" alt="메뉴" onClick={() => setToggleTab(1)} />
+            <div className="sidebar" style={{ width: toggleTab ? "500px" : "0px " }}>
                 <Contents />
             </div>
         </div>
