@@ -19,7 +19,7 @@ function Modal() {
 
     return (
         <div>
-            <img id="plusBtn" src="./plusBtn.png" alt="추가" onClick={openModal} />
+            <img id="plusBtn" src="./img/plusBtn.png" alt="추가" onClick={openModal} />
             <div className={modalOpen ? 'openModal modal' : 'modal'}>
                 {modalOpen ? (
                     <section>

@@ -45,7 +45,7 @@ function KakaoMap() {
 
 
         /* 마커 표시를 위한 코드 */
-        const imageSrc = './marker.png'
+        const imageSrc = './img/marker.png'
         const imageSize = new kakao.maps.Size(60, 70) // 마커 이미지의 크기
         const imageOption = { offset: new kakao.maps.Point(27, 69) } // 마커 이미지의 옵션
         // 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정한다.

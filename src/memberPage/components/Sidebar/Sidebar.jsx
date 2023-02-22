@@ -36,7 +36,7 @@ function Sidebar() {
 
     return (
         <div className="SidebarContainer">
-            <img id="menuBtn" src="./menuBtn.png" alt="메뉴" onClick={() => setToggleTab(0)} />
+            <img id="menuBtn" src="./img/menuBtn.png" alt="메뉴" onClick={() => setToggleTab(0)} />
             <div className="sidebar" style={{ width: toggleTab === 0 ? "500px" : "0px " }}>
                 <div>
                     <button>알림</button>
@@ -48,7 +48,7 @@ function Sidebar() {
                     </div>
                 </div>
                 <div className="profile">
-                    <img id="profileImage" src="./profile.png" alt="프로필사진" />
+                    <img id="profileImage" src="./img/profile.png" alt="프로필사진" />
                     <h3>얼레벌레</h3>
                 </div>
             </div>
