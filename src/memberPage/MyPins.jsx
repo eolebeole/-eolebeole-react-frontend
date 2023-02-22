@@ -1,16 +1,16 @@
 import { React, useState, useEffect } from 'react';
 
-import Sidebar from './components/Sidebar/Sidebar'
-import Modal from './components/Modal/Modal';
+import Sidebar from './Sidebar'
+import Modal from './PlusPin';
 
-import './KakaoMap.css';
+import './MyPins.css';
 
 
 
 const { kakao } = window; // 리액트에서 카카오 지도 API를 사용하기 위한 코드
 
 
-function KakaoMap() {
+function MyPins() {
 
 
     /* 사용자의 현재위치 가져오기 위한 코드   #geolocation */
@@ -46,8 +46,8 @@ function KakaoMap() {
 
         /* 마커 표시를 위한 코드 */
         const imageSrc = './img/marker.png'
-        const imageSize = new kakao.maps.Size(60, 70) // 마커 이미지의 크기
-        const imageOption = { offset: new kakao.maps.Point(27, 69) } // 마커 이미지의 옵션
+        const imageSize = new kakao.maps.Size(25, 35) // 마커 이미지의 크기
+        const imageOption = { offset: new kakao.maps.Point(30, 50) } // 마커 이미지의 옵션
         // 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정한다.
 
         const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption) // 마커이미지 생성
@@ -98,4 +98,4 @@ function KakaoMap() {
 
 
 
-export default KakaoMap;
+export default MyPins;

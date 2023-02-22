@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import KakaoMap from './memberPage/KakaoMap';
+import KakaoMap from './memberPage/MyPins';
 
 import './App.css';
 

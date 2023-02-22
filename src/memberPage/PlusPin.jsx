@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
 
-import './Modal.css';
+import './PlusPin.css';
 
 
 
-function Modal() {
+function PlusPin() {
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -41,4 +41,4 @@ function Modal() {
 
 
 
-export default Modal;
+export default PlusPin;

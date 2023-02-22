@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { FaTh, FaUserAlt, FaCommentAlt, FaBars } from 'react-icons/fa';
 
-import MyRestaurant from './tabs/MyRestaurant'
-import MatMate from './tabs/MatMate'
-import GuestBook from './tabs/GuestBook'
+import MyRestaurant from './MyRestaurant'
+import MatMate from './MatMate'
+import GuestBook from './GuestBook'
 
 import './Sidebar.css';
 
