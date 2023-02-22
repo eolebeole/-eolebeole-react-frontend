@@ -1,13 +1,8 @@
-
-
 실행하려면 해야할 것 :
 1. npm install
 2. npm start
 
-
-
-사용한 모듈 : 
-<React icon>
-npm install react-icons --save   // 안해도 됨
-<React Router>
-npm install react-router-dom --save   // 안해도 됨
+memberPage : App.js -> MyPins(지도) -> Sidebar(사이드바 메뉴) -> MyRestaruant (나의 맛집)
+                                                            -> MatMate (맛메이트)
+                                                            -> GuestBook (방명록)
+                                    -> PlusPin(맛집 추가)

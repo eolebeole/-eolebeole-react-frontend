@@ -6,6 +6,6 @@
 
 #nowPosition {
     position: absolute;
-    top: 5px;
     z-index: 2;
+    top: 5px;
 }

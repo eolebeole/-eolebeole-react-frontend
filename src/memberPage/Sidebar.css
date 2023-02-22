@@ -1,75 +1,105 @@
-/* SidebarContainer를 지도 안에 넣기 */
+/* Sidebar 컴포넌트 CSS */
 
 .SidebarContainer {
-    display: flex;
-    flex-direction: column;
     position: absolute;
     z-index: 3;
     top: 0px;
     right: 0px;
+
+    display: flex;
+    flex-direction: column;
 }
 
-/* 버튼 CSS */
+
 #menuBtn {
     position: absolute;
     right: 10px;
     top: 10px;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
     width: 30px;
     height: 30px;
-    justify-content: space-between;
+
     cursor: pointer;
 }
 
-/* 탭 메뉴 가로로 배열*/
+
+/* TODO: 알림/설정 아이콘이 만들어지면 선택자(button) 변경 */
+button {
+    cursor: pointer;
+}
+
+
 .sidebar {
-    transition: all 0.5s;
-    background-color: rgb(225, 20, 20);
-    display: flex;
     position: absolute;
-    right: 0px;
     z-index: 3;
+    right: 0px;
+
+    display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+
     width: 300px;
     height: 800px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+
     overflow: hidden;
+
+    transition: all 0.5s;
 }
+
+
+
+/* Contents 컴포넌트 CSS */
 
 .bars {
     position: absolute;
     left: 5px;
+
+    cursor: pointer;
 }
+
 
 .tabs {
     display: flex;
     flex-direction: row;
-    margin: 10px;
+
     width: 250px;
+    margin: 10px;
+
+    cursor: pointer;
 }
+
 
 .MyRestaurant,
 .MatMate,
 .GuestBook {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+
     width: 100px;
+    margin: 10px;
+
+    /* TODO: 아이콘/글자 색 변경 */
     color: rgb(25, 116, 33);
+
     overflow: hidden;
 }
 
-#link:hover {
+
+/* TODO: 필요하면 수정, 필요없으면 삭제 */
+.MyRestaurant:hover,
+.MatMate:hover,
+.GuestBook:hover {
     background: rgb(37, 164, 48);
-    transition: all 0.5s;
+    border-radius: 5px;
+    transition: all 0.8s;
 }
 
-.active {
-    background: rgb(37, 164, 48);
-    font-size: 25px;
-}
 
 .icon,
 .link_text {

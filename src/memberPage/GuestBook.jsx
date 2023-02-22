@@ -1,15 +1,15 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 
 import { FaBars } from 'react-icons/fa';
 
-function GuestBook() {
 
-    const [toggleTab, setToggleTab] = useState(4);
+
+function GuestBook(props) {
 
     return (
         <div>
             <div className="bars">
-                <FaBars onClick={() => setToggleTab(0)} />
+                <FaBars onClick={() => props.setToggleTab(1)} />
             </div>
             <h3>GuestBook page</h3>
         </div>

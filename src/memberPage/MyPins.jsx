@@ -13,7 +13,7 @@ const { kakao } = window; // 리액트에서 카카오 지도 API를 사용하�
 function MyPins() {
 
 
-    /* 사용자의 현재위치 가져오기 위한 코드   #geolocation */
+    /* 사용자의 현재위치 가져오기 위한 코드   # geolocation */
     var [position, setPosition] = useState([33.450701, 126.570667]);
 
     function successGetPosition(position) {
@@ -32,11 +32,12 @@ function MyPins() {
 
 
 
-    /* 지도가 페이지 로딩 시 바로 나오고, 위치정보가 바뀌면 실시간 반영 */
-    useEffect(() => {
+    useEffect(() => {  // 지도가 페이지 로딩 시 바로 나오고, 위치정보가 바뀌면 실시간 반영하도록 useEffect 사용
+
+
         /* 카카오 지도 코드 */
         const mapContainer = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
-        var mapOption = { // 지도를 생성할 때 필요한 기본 옵션
+        var mapOption = {
             center: new kakao.maps.LatLng(position[0], position[1]), // 지도의 중심 좌표.
             level: 3 // 지도의 레벨 (확대, 축소 정도)
         }
@@ -44,18 +45,18 @@ function MyPins() {
         const map = new kakao.maps.Map(mapContainer, mapOption) // 지도 생성 및 객체 리턴
 
 
-        /* 마커 표시를 위한 코드 */
+
+        /* 마커 표시를 위한 코드 (마커의 이미지, 크기, 실제 좌표와 마커 좌표가 일치하도록 설정) */
         const imageSrc = './img/marker.png'
-        const imageSize = new kakao.maps.Size(25, 35) // 마커 이미지의 크기
-        const imageOption = { offset: new kakao.maps.Point(30, 50) } // 마커 이미지의 옵션
-        // 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정한다.
+        const imageSize = new kakao.maps.Size(25, 35) // TODO: 마커 이미지의 크기
+        const imageOption = { offset: new kakao.maps.Point(30, 50) } // TODO: 마커 이미지의 옵션
 
         const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption) // 마커이미지 생성
 
-        const markerPositions = [
+        const markerPositions = [   // TODO: DB에 있는 데이터 가져오도록 수정
             {
                 title: '카카오',
-                latlng: new kakao.maps.LatLng(33.450701, 126.570667) // 마커가 표시될 위치
+                latlng: new kakao.maps.LatLng(33.450701, 126.570667)
             },
             {
                 title: '테니스장',
@@ -68,19 +69,19 @@ function MyPins() {
             {
                 title: '어린이집',
                 latlng: new kakao.maps.LatLng(33.45235602540716, 126.56959900238589)
-            },   // 마케 예시
+            },
         ]
 
         for (var i = 0; i < markerPositions.length; i++) {
             var marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
                 position: markerPositions[i].latlng, // 마커를 표시할 위치
-                title: markerPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                title: markerPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀 표시
                 image: markerImage // 마커 이미지 
             })
         }
 
-        marker.setMap(map); // 마커가 지도위에 표시되도록.
+        marker.setMap(map); // 마커를 지도위에 표시
 
     }, [position])
 
