@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 
-const { kakao } = window;
+import Sidebar from './components/Sidebar/Sidebar'
+import Modal from './components/Modal/Modal';
+
+import './KakaoMap.css';
+
+
+
+const { kakao } = window; // 리액트에서 카카오 지도 API를 사용하기 위한 코드
+
 
 function KakaoMap() {
+
+
+    /* 사용자의 현재위치 가져오기 위한 코드   #geolocation */
     var [position, setPosition] = useState([33.450701, 126.570667]);
 
     function successGetPosition(position) {
@@ -19,8 +30,11 @@ function KakaoMap() {
         navigator.geolocation.getCurrentPosition(successGetPosition, failGetPosition);
     }
 
-    useEffect(() => {
 
+
+    /* 지도가 페이지 로딩 시 바로 나오고, 위치정보가 바뀌면 실시간 반영 */
+    useEffect(() => {
+        /* 카카오 지도 코드 */
         const mapContainer = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
         var mapOption = { // 지도를 생성할 때 필요한 기본 옵션
             center: new kakao.maps.LatLng(position[0], position[1]), // 지도의 중심 좌표.
@@ -29,7 +43,8 @@ function KakaoMap() {
 
         const map = new kakao.maps.Map(mapContainer, mapOption) // 지도 생성 및 객체 리턴
 
-        // 마커 표시
+
+        /* 마커 표시를 위한 코드 */
         const imageSrc = './marker.png'
         const imageSize = new kakao.maps.Size(60, 70) // 마커 이미지의 크기
         const imageOption = { offset: new kakao.maps.Point(27, 69) } // 마커 이미지의 옵션
@@ -53,7 +68,7 @@ function KakaoMap() {
             {
                 title: '어린이집',
                 latlng: new kakao.maps.LatLng(33.45235602540716, 126.56959900238589)
-            },
+            },   // 마케 예시
         ]
 
         for (var i = 0; i < markerPositions.length; i++) {
@@ -67,17 +82,20 @@ function KakaoMap() {
 
         marker.setMap(map); // 마커가 지도위에 표시되도록.
 
-
     }, [position])
 
 
 
     return (
-        <div id="kakaoMap">
-            <button onClick={getPosition}>현위치</button>
+        <div className="kakaoMap">
             <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
+            <Sidebar />
+            <button id="nowPosition" onClick={getPosition}>현위치</button>
+            <Modal />
         </div>
     )
 }
+
+
 
 export default KakaoMap;

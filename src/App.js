@@ -1,47 +1,27 @@
-import React from 'react';
-import './App.css';
-import KakaoMap from './KakaoMap';
-import Sidebar from './components/Sidebar/Sidebar'
+import { React } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import MyMap from './pages/MyMap';
-import MatMate from './pages/MatMate';
-import GuestBook from './pages/GuestBook';
 
-import { useState } from 'react';
-import Modal from './components/Modal/Modal';
+import KakaoMap from './memberPage/KakaoMap';
+
+import './App.css';
+
 
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    console.log(1);
-    setModalOpen(true);
-  }
-  const closeModal = () => {
-    setModalOpen(false);
-  }
- 
 
   return (
     <div className="App">
-      <KakaoMap />
-      <div className="Btn" onClick={openModal}>
-        <img id="plusBtn" src="./plusBtn.png" alt="추가"/>
-      </div>
       <BrowserRouter>    
-        <Sidebar>
           <Routes>
-            <Route path="/"element={<></>}/>
-            <Route path="/mymap"element={<MyMap/>}/>
-            <Route path="/matmate"element={<MatMate/>}/>
-            <Route path="/guestbook"element={<GuestBook/>}/>
+            <Route path="/"element={<KakaoMap/>}/> {/* element 자리에 메인페이지 컴포넌트를 넣으면 됩니다. */}
+            {/* <Route path="/adminpage"element={<KakaoMap/>}/> */} {/* element 자리에 관리자페이지 컴포넌트를 넣으면 됩니다. */}
+            <Route path="/memberpage"element={<KakaoMap/>}/>
           </Routes>
-        </Sidebar>
       </BrowserRouter>
-      <Modal open={modalOpen} close={closeModal}></Modal>
     </div>
   );
 }
+
+
 
 export default App;

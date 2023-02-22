@@ -1,0 +1,19 @@
+.kakaoMap {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+#nowPosition {
+    position: absolute;
+    top: 5px;
+    z-index: 2;
+}
+
+.sidebar {
+    z-index: 5;
+}
+
+#plusBtn {
+    z-index: 3;
+}
