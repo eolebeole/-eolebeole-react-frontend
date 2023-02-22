@@ -9,11 +9,3 @@
     top: 5px;
     z-index: 2;
 }
-
-.sidebar {
-    z-index: 5;
-}
-
-#plusBtn {
-    z-index: 3;
-}
