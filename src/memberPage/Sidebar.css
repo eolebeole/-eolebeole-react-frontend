@@ -1,3 +1,111 @@
+/* Contents 컴포넌트 CSS */
+
+.header {
+    padding-top: 10px;
+}
+
+
+.doubleLeft {
+    position: absolute;
+    left: 5px;
+
+    cursor: pointer;
+}
+
+
+.bell {
+    cursor: pointer;
+}
+
+
+.bell>.icon {
+    position: absolute;
+    right: 15px;
+    font-size: 25px;
+}
+
+
+.activeIcon {
+    position: absolute;
+    z-index: 4;
+    top: -5px;
+    right: 5px;
+
+    font-size: 35px;
+
+    color: rgb(212, 21, 21);
+}
+
+
+.profile {
+    margin-top: 50px;
+}
+
+
+#nickname {
+    margin-top: 10px;
+}
+
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 300px;
+    margin: 50px 20px 0 20px;
+
+    cursor: pointer;
+}
+
+
+.MyRestaurant,
+.MatMate,
+.GuestBook {
+    display: flex;
+    flex-direction: column;
+
+    width: 100px;
+    margin: 10px;
+
+    color: rgb(25, 116, 33);
+}
+
+
+/* TODO: 필요하면 수정, 필요없으면 삭제 */
+.MyRestaurant:hover,
+.MatMate:hover,
+.GuestBook:hover {
+    background: rgb(37, 164, 48);
+    border-radius: 5px;
+    transition: all 0.8s;
+}
+
+
+.icon {
+    font-size: 25px;
+    color: rgb(25, 116, 33);
+}
+
+
+.link_text {
+    font-size: 15px;
+    color: rgb(25, 116, 33);
+}
+
+
+.setting {
+    position: absolute;
+    right: 15px;
+    bottom: 3px;
+
+    cursor: pointer;
+}
+
+
+
+
+
 /* Sidebar 컴포넌트 CSS */
 
 .SidebarContainer {
@@ -27,12 +135,6 @@
 }
 
 
-/* TODO: 알림/설정 아이콘이 만들어지면 선택자(button) 변경 */
-button {
-    cursor: pointer;
-}
-
-
 .sidebar {
     position: absolute;
     z-index: 3;
@@ -42,66 +144,12 @@ button {
     flex-direction: column;
     align-items: center;
 
-    width: 300px;
-    height: 800px;
+    width: 500px;
+    height: 100vh;
     background-color: rgb(255, 255, 255);
     color: black;
 
     overflow: hidden;
 
     transition: all 0.5s;
-}
-
-
-
-/* Contents 컴포넌트 CSS */
-
-.bars {
-    position: absolute;
-    left: 5px;
-
-    cursor: pointer;
-}
-
-
-.tabs {
-    display: flex;
-    flex-direction: row;
-
-    width: 250px;
-    margin: 10px;
-
-    cursor: pointer;
-}
-
-
-.MyRestaurant,
-.MatMate,
-.GuestBook {
-    display: flex;
-    flex-direction: column;
-
-    width: 100px;
-    margin: 10px;
-
-    /* TODO: 아이콘/글자 색 변경 */
-    color: rgb(25, 116, 33);
-
-    overflow: hidden;
-}
-
-
-/* TODO: 필요하면 수정, 필요없으면 삭제 */
-.MyRestaurant:hover,
-.MatMate:hover,
-.GuestBook:hover {
-    background: rgb(37, 164, 48);
-    border-radius: 5px;
-    transition: all 0.8s;
-}
-
-
-.icon,
-.link_text {
-    font-size: 15px;
 }
