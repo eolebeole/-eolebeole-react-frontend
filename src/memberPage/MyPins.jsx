@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 
 import Sidebar from './Sidebar'
-import Modal from './PlusPin';
+import PlusPin from './PlusPin';
 
 import './MyPins.css';
 
@@ -92,7 +92,7 @@ function MyPins() {
             <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
             <Sidebar />
             <button id="nowPosition" onClick={getPosition}>현위치</button>
-            <Modal />
+            <PlusPin />
         </div>
     )
 }

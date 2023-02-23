@@ -1,8 +1,6 @@
 import { React } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-
 import MyPins from './memberPage/MyPins';
-
 import './App.css';
 
 
