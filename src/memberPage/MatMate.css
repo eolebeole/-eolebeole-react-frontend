@@ -1,0 +1,71 @@
+/* 맛메이트 전체창 */
+#MatMate {
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 500px;
+}
+
+/* 맛메이트 상단부 */
+#MatMate_top {
+    display: flex;
+}
+
+/* 맛메이트 상단부 바로 아래 */
+#MatMate_content {
+    display: flex;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+/* 친구 검색 돋보기 */
+#MatMate_search {
+    position: absolute;
+    top: 70px;
+    right: 248px;
+    width: 35px;
+    height: 28px;
+    text-align: center;
+    padding-top: 8px;
+    background-color: rgb(201, 201, 201);
+}
+
+/* 친구 검색창 */
+#MatMate_findInput {
+    padding-left: 3em;
+    height: 2rem;
+    width: 13rem;
+    margin: 1rem;
+}
+
+/* 맛메이트(숫자) 부분 */
+#MatMate_title {
+    padding: 1rem;
+}
+
+/* 맛메이트 리스트 이름 */
+#MatMate_name {
+    padding: 1rem;
+}
+
+/* 친구추가 버튼 */
+#MatMate_plus {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 맛메이트창 기본프로필 */
+#MatMate_person {
+    padding-left: 20px;
+    font-size: 50px;
+    color: rgb(19, 119, 49);
+}
+
+hr {
+    height: 1px;
+    background-color: darkgray;
+}

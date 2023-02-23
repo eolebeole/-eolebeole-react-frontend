@@ -7,9 +7,6 @@ import Test from './Test';
 import './MyPins.css';
 
 
-import { Map, MapInfoWindow, MapMarker } from 'react-kakao-maps-sdk';
-
-
 
 const { kakao } = window; // 리액트에서 카카오 지도 API를 사용하기 위한 코드
 
@@ -18,8 +15,7 @@ function MyPins() {
 
 
     /* 사용자의 현재위치 가져오기 위한 코드   # geolocation */
-    const [markers, setMarkers] = useState([]);
-    const [position, setPosition] = useState([33.450701, 126.570667]);
+    var [position, setPosition] = useState([33.450701, 126.570667]);
 
     function successGetPosition(position) {
         var lat = position.coords.latitude;
@@ -40,13 +36,13 @@ function MyPins() {
 
 
         /* 카카오 지도 코드 */
-        // const mapContainer = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
-        // var mapOption = {
-        //     center: new kakao.maps.LatLng(position[0], position[1]), // 지도의 중심 좌표.
-        //     level: 3 // 지도의 레벨 (확대, 축소 정도)
-        // }
+        const mapContainer = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
+        var mapOption = {
+            center: new kakao.maps.LatLng(position[0], position[1]), // 지도의 중심 좌표.
+            level: 3 // 지도의 레벨 (확대, 축소 정도)
+        }
 
-        // const map = new kakao.maps.Map(mapContainer, mapOption) // 지도 생성 및 객체 리턴
+        const map = new kakao.maps.Map(mapContainer, mapOption) // 지도 생성 및 객체 리턴
 
 
         /* TODO: 마커의 옵션 세영이한테 물어보고 반영하기 */
@@ -87,62 +83,35 @@ function MyPins() {
             },
         ]
 
-        setMarkers(markerPositions.map((item) => {
-            return <MapMarker // 마커를 생성합니다
-                position={{
-                    // 마커가 표시될 위치입니다
-                    lat: item.latlng.getLat(),
-                    lng: item.latlng.getLng(),
-                }}
-            />
-        }));
+        for (let item of markerPositions) {
+            let marker = new kakao.maps.Marker({
+                map: map,
+                position: item.latlng,
+                title: item.title,
+                image: markerImage,
+                clickable: true
+            })
 
-        // for (let item of markerPositions) {
-        //     let marker = new kakao.maps.Marker({
-        //         map: map,
-        //         position: item.latlng,
-        //         title: item.title,
-        //         image: markerImage,
-        //         clickable: true
-        //     })
+            let infowindow = new kakao.maps.InfoWindow({
+                content: item.content,
+                removable: true
+            })
 
-        //     let infowindow = new kakao.maps.InfoWindow({
-        //         content: item.content,
-        //         removable: true
-        //     })
-
-        //     kakao.maps.event.addListener(marker, 'click', function () {
-        //         // infowindow.open(map, marker);
-        //     });
-        // }
+            kakao.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
     }, [position])
 
 
 
     return (
         <div className="kakaoMap">
-            <Map style={{ width: '100vw', height: '100vh' }}
-                center={{ lat: position[0], lng: position[1] }}
-                level={3}
-            >
-                {markers}
-                <MapInfoWindow // 인포윈도우를 생성하고 지도에 표시합니다
-                    position={{
-                        // 인포윈도우가 표시될 위치입니다
-                        lat: 33.450701,
-                        lng: 126.570667,
-                    }}
-                    removable={true} // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-                >
-                    {/* 인포윈도우에 표출될 내용으로 HTML 문자열이나 React Component가 가능합니다 */}
-                    <div style={{ padding: "5px", color: "#000" }}>Hello World!</div>
-                    <Test myPinImage={"./img/marker.png"} myPinName={"카카오"} myPinScore={"⭐3.8"} />
-                </MapInfoWindow>
-            </Map>
+            <div id="map" style={{ width: '100vw', height: '100vh' }}></div>
             <Sidebar />
             <button id="nowPosition" onClick={getPosition}>현위치</button>
             <PlusPin />
-        </div >
+        </div>
     )
 }
 
