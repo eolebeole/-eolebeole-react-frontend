@@ -19,17 +19,13 @@ function MatMate(props) {
         <hr />
     </>)
 
-    let num = 0;
 
-    const number = friends.forEach(() => {
-        num += 1;
-    })
 
     return (
         <div id="MatMate">
             <div id="MatMate_top">
                 <div className="doubleLeft icon" onClick={() => props.setToggleTab(1)}><FiChevronsLeft /></div>
-                <div id="MatMate_title">맛메이트({num})</div>
+                <div id="MatMate_title">맛메이트((맛메이트수))</div>
                 <div id="MatMate_plus"><BiPlus /></div>
 
             </div>

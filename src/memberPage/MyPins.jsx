@@ -63,7 +63,7 @@ function MyPins() {
         ]
 
         setMarkers(markerPositions.map((item) => <MarkerAndInfo
-            myPinImage={"./img/marker.png"}
+            myPinImage={false ? "./img/profile.png" : "./img/menuBtn.png"}   /* TODO: DB 이미지 불러오기, 없을 경우 기본이미지*/
             myPinName={item.title}
             myPinScore={"3.8"}
             lat={item.latlng.getLat()}

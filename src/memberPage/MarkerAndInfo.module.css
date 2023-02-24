@@ -1,3 +1,13 @@
+.infoWindow {
+    border-width: 0 !important;
+    border-radius: 8px !important;
+
+}
+
+.infowindow>div {
+    border-width: 0 !important;
+}
+
 .myPinContent {
     display: flex;
     flex-direction: row;
@@ -5,11 +15,13 @@
     align-items: center;
 
     position: relative;
-    width: calc(100% + 30px);
+    width: calc(100% + 51px);
     height: 100px;
-    background-color: darkgray;
+    background-color: rgb(254, 254, 254);
 
-    border: 5px solid white;
+    border-radius: 8px;
+
+    /* border: 5px solid white; */
 }
 
 .myPinImage {
@@ -22,9 +34,6 @@
     flex-direction: column;
 }
 
-.infoWindow {
-    border-width: 0 !important;
-}
 
 .infoClose {
     position: absolute;

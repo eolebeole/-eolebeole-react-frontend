@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-import { FaMapMarkerAlt, FaUserFriends, FaBell } from 'react-icons/fa'; /* JH - # FaAngleDoubleLeft */
+import { FaMapMarkerAlt, FaBell } from 'react-icons/fa';
 import { FiChevronsLeft } from 'react-icons/fi'
-import { HiUsers } from 'react-icons/hi' /* JH - HiUser, FaUserFriends 아이콘 둘 다 크기가 작아요 */
-import { MdInsertComment } from 'react-icons/md' /* JH - 아래 'Bs~' 아이콘 대신 사용해볼지 테스트해보고 둘 중에 하나 지워주세요 */
+import { HiUsers } from 'react-icons/hi'
 import { BsFillChatLeftTextFill, BsDot } from 'react-icons/bs'
 import { IoSettingsSharp } from 'react-icons/io5'
 
