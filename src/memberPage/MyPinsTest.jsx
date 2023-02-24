@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 
 import Sidebar from './Sidebar'
 import PlusPin from './PlusPin';
-import Test from './Test';
+import Test from './MarkerAndInfo';
 
 import './MyPins.css';
 

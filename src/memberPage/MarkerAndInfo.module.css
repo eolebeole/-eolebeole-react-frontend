@@ -1,0 +1,10 @@
+.myPinContent {
+    position: relative;
+    width: 300px;
+    height: 100px
+}
+
+.myPinImage {
+    width: 50px;
+    height: 50px;
+}
