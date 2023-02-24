@@ -1,8 +1,9 @@
 import { React, useState } from 'react';
-
+import { VscSearch } from 'react-icons/vsc'
 import { BiPlus } from 'react-icons/bi'
 
 import './PlusPin.css';
+import './FriendPlus.css';
 
 
 
@@ -31,12 +32,11 @@ function FriendPlus() {
                             </button>
                             <h1>친구 등록</h1>
                         </header>
-                        <div className="MatMate_friend">
-                            <input type="text" placeholder="닉네임"/>
-                            <div>#</div>
-                            <input type="text" placeholder="0000"/>
+                        <div id="">
+                            <VscSearch />
                         </div>
-                        <button>친구 추가</button>
+                        <input id="MatMate_friend" type="text" placeholder="닉네임을 입력해주세요."/>
+                        <input id="MatMate_friendBtn" type="button" value="친구 등록"/>
                     </section>
                 ) : null}
             </div>
