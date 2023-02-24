@@ -65,7 +65,7 @@ function MyPins() {
         setMarkers(markerPositions.map((item) => <MarkerAndInfo
             myPinImage={"./img/marker.png"}
             myPinName={item.title}
-            myPinScore={"⭐3.8"}
+            myPinScore={"3.8"}
             lat={item.latlng.getLat()}
             lng={item.latlng.getLng()}
         />));
