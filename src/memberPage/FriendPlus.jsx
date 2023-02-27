@@ -1,10 +1,14 @@
 import { React, useState } from 'react';
 
+import { VscSearch } from 'react-icons/vsc'
+import { BiPlus } from 'react-icons/bi'
+
 import './PlusPin.css';
+import './FriendPlus.css';
 
 
 
-function PlusPin() {
+function FriendPlus() {
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -19,7 +23,7 @@ function PlusPin() {
 
     return (
         <div>
-            <img id="plusBtn" src="./img/plusBtn.png" alt="추가" onClick={openModal} />
+            <div id="MatMate_plus" onClick={openModal}><BiPlus /></div>
             <div className={modalOpen ? 'openModal modal' : 'modal'}>
                 {modalOpen ? (
                     <section>
@@ -27,11 +31,13 @@ function PlusPin() {
                             <button className="close" onClick={closeModal}>
                                 &times;
                             </button>
-                            <h1>맛집 등록</h1>
+                            <h1>친구 등록</h1>
                         </header>
-                        <div>맛집 검색 및 선택(가게 주소, 등록 자동등록)</div>
-                        <div>파일첨부</div>
-                        <div>맛점수</div>
+                        <div id="">
+                            <VscSearch />
+                        </div>
+                        <input id="MatMate_friend" type="text" placeholder="닉네임을 입력해주세요." />
+                        <input id="MatMate_friendBtn" type="button" value="친구 등록" />
                     </section>
                 ) : null}
             </div>
@@ -41,4 +47,4 @@ function PlusPin() {
 
 
 
-export default PlusPin;
+export default FriendPlus;
