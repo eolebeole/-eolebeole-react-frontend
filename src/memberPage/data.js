@@ -9,10 +9,6 @@ export default [
         myScore: 3.8,
         x: 33.44976851084881,
         y: 126.56962253912842,
-        /* TODO :
-        프론트에서 버튼을 누르면 백엔드에서 데이터를 false -> true로 바꾸도록 설정해야한다. (TodoList처럼 앞에 ! 써서 클릭 시 바꾸도록)
-        그러면 리스트 클릭 시 인포윈도우가 나오게 할 수 있다. 
-        */
     },
     {
         id: 2,
@@ -27,10 +23,10 @@ export default [
     },
     {
         id: 3,
-        photo: "가게 이미지2",
+        photo: "./img/profile.png",
         name: "어린이집",
-        address: "가게 주소2",
-        phone: "가게 번호2",
+        address: "청주 어딘가",
+        phone: "043-123-4567",
         averageScore: 3.5,
         myScore: 1.8,
         x: 33.45235602540716,

@@ -11,6 +11,7 @@ import MyRestaurant from './MyRestaurant'
 import MatMate from './MatMate'
 import GuestBook from './GuestBook'
 import Setting from './Setting'
+import RestaurantInfo from './RestaurantInfo';
 
 import './Sidebar.css';
 
@@ -19,6 +20,8 @@ import './Sidebar.css';
 function Sidebar(props) {
 
     const [toggleTab, setToggleTab] = useState(0);
+
+    const [index, setIndex] = useState(0);
 
 
 
@@ -65,7 +68,7 @@ function Sidebar(props) {
 
         } else if (toggleTab === 3) {
             return (
-                <MyRestaurant setToggleTab={setToggleTab} setPosition={props.setPosition} nowPosition={props.nowPosition} markerPositions={props.markerPositions} />
+                <MyRestaurant setToggleTab={setToggleTab} setPosition={props.setPosition} nowPosition={props.nowPosition} markerPositions={props.markerPositions} setIndex={setIndex} />
             )
 
         } else if (toggleTab === 4) {
@@ -81,6 +84,11 @@ function Sidebar(props) {
         } else if (toggleTab === 6) {
             return (
                 <Setting setToggleTab={setToggleTab} />
+            )
+
+        } else if (toggleTab === 7) {
+            return (
+                <RestaurantInfo setToggleTab={setToggleTab} markerPositions={props.markerPositions} index={index} />
             )
 
         } else return <></>

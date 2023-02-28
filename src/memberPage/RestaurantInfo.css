@@ -1,0 +1,46 @@
+.restaurant_Info {
+    display: flex;
+    flex-direction: row;
+}
+
+.restaurantInfo_top {
+    position: absolute;
+    left: 5px;
+    padding-top: 10px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.restaurantInfo_image {
+    margin-top: 80px;
+    width: 300px;
+    height: 200px;
+}
+
+.restaurantInfo_name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(98, 119, 44);
+}
+
+.restaurantInfo_address {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.restaurantInfo_phone {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.restaurantInfo_averageScore {
+    margin-top: 20px;
+}
+
+.restaurantInfo_myScore {
+    margin-top: 10px;
+}

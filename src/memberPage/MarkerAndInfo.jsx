@@ -1,6 +1,6 @@
-import { observer } from "mobx-react-lite";
 import { React } from 'react';
 import { MapInfoWindow, MapMarker } from 'react-kakao-maps-sdk';
+import { observer } from "mobx-react-lite";
 
 import styles from './MarkerAndInfo.module.css';
 

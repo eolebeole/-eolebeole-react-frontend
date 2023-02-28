@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 
 import { Map } from 'react-kakao-maps-sdk';
 import markerPositions from './data';
-import { Place, PlaceView } from './Place';
+import { Place } from './Place';
 import MarkerAndInfo from './MarkerAndInfo';
 import PlusPin from './PlusPin';
 import Sidebar from './Sidebar';
@@ -33,10 +33,6 @@ function MyPins() {
     }
 
     useEffect(() => {
-        /* TODO: DB에 있는 데이터 가져오도록 수정 */
-        // const testDB = [{
-        //     name: "카카오", image: "./img/marker.png", score: "⭐3.8"
-        // }];
 
         markerPositions.forEach((item) => {
             item.place = new Place(item);
