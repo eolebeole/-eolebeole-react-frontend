@@ -16,9 +16,11 @@ import './Sidebar.css';
 
 
 
-function Sidebar() {
+function Sidebar(props) {
 
     const [toggleTab, setToggleTab] = useState(0);
+
+
 
     function Contents() {
         if (toggleTab === 1) {
@@ -63,7 +65,7 @@ function Sidebar() {
 
         } else if (toggleTab === 3) {
             return (
-                <MyRestaurant setToggleTab={setToggleTab} />
+                <MyRestaurant setToggleTab={setToggleTab} setPosition={props.setPosition} nowPosition={props.nowPosition} markerPositions={props.markerPositions} />
             )
 
         } else if (toggleTab === 4) {
