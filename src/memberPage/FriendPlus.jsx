@@ -3,7 +3,7 @@ import { VscSearch } from "react-icons/vsc";
 import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import axios from "axios";
-import Pagination from "./Pagination";
+import FriendPlus_Pagination from "./FriendPlus_Pagination";
 
 import "./PlusPin.css";
 import "./FriendPlus.css";
@@ -37,7 +37,8 @@ function FriendPlus() {
   };
 
   const filtered = users.filter((user) => user.nick.includes(search));
-  const list = filtered.slice(offset, offset + limit).map((item) => (
+  const list = filtered.slice(offset, offset + limit)
+                       .map((item) => (
     <>
       <div id="FriendPlus_content">
         <div id="FriendPlus_person">
@@ -76,7 +77,7 @@ function FriendPlus() {
             />
             <div>{list}</div>
             <div>
-              <Pagination
+              <FriendPlus_Pagination
                 total={filtered.length}
                 limit={limit}
                 page={page}
