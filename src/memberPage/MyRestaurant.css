@@ -10,7 +10,8 @@
 
 
 #MyRestaurant_top {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
     padding-top: 10px;
 }
 
