@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "mrmlnc.vscode-postcss-sorting",
+    "ms-vscode.live-server",
+    "TabNine.tabnine-vscode"
+  ]
+}
