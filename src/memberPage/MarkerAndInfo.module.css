@@ -1,42 +1,52 @@
+/* 인포윈도우 CSS */
+
 .infoWindow {
-    border-width: 0 !important;
-    border-radius: 8px !important;
-
-}
-
-.infowindow>div {
-    border-width: 0 !important;
+  border-width: 0 !important;
+  border-radius: 8px !important;
 }
 
 .myPinContent {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 
-    position: relative;
-    width: calc(100% + 51px);
-    height: 100px;
-    background-color: rgb(254, 254, 254);
+  position: relative;
+  width: calc(100% + 51px);
+  height: 100px;
+  background-color: rgb(254, 254, 254);
 
-    border-radius: 8px;
-
-    /* border: 5px solid white; */
+  border-radius: 8px;
 }
 
 .myPinImage {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .myPinInfo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+
+  /* font-weight: bold; */
 }
 
+.myPinName {
+  font-size: 17px;
+}
+
+.myPinScore {
+  font-size: 16px;
+  padding-left: 8px;
+}
 
 .infoClose {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  color: rgb(98, 119, 44);
+  font-weight: bolder;
+
+  cursor: pointer;
 }

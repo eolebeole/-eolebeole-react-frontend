@@ -106,16 +106,44 @@
 }
 
 #MatMate_friendBtn {
-  position: relative;
-  top: 430px;
-  left: 330px;
   width: 80px;
   height: 35px;
+  margin: auto;
 }
 
 #MatMate_friend {
   position: relative;
-  left: 150px;
+  left: 105px;
   height: 35px;
-  width: 150px;
+  width: 220px;
+  padding-left: 3em;
+}
+
+#FriendPlus_search {
+  position: relative;
+  top: 35.5px;
+  left: 106px;
+  z-index: 1000;
+  width: 35px;
+  height: 28.5px;
+  text-align: center;
+  padding-top: 8px;
+  background-color: rgb(201, 201, 201);
+  border-radius: 1.5px 0 0 1.5px;
+}
+
+#FriendPlus_person {
+  padding-left: 20px;
+  font-size: 50px;
+  color: rgb(19, 119, 49);
+}
+
+#FriendPlus_name {
+  padding: 1rem;
+}
+
+#FriendPlus_content {
+  display: flex;
+  padding-top: 5px;
+  font-weight: 600;
 }

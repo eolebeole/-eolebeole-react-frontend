@@ -7,9 +7,11 @@ import MarkerAndInfo from './MarkerAndInfo';
 import PlusPin from './PlusPin';
 import Sidebar from './Sidebar';
 
-import './MyPins.css';
+import styles from './MyPins.module.css';
 
 
+
+const { kakao } = window;
 
 function MyPins() {
 
@@ -18,6 +20,7 @@ function MyPins() {
   function successGetPosition(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
+    console.log([lat, lng])
     setPosition([lat, lng])
   }
 
@@ -28,7 +31,6 @@ function MyPins() {
   function getPosition() {
     navigator.geolocation.getCurrentPosition(successGetPosition, failGetPosition);
   }
-
 
 
   const [markers, setMarkers] = useState([]);
@@ -42,6 +44,7 @@ function MyPins() {
 
     setMarkers(markerPositions.map((item) => <MarkerAndInfo
       /* TODO: DB에 이미지가 없을 경우 사용할 기본이미지 제작 및 아래에 기입*/
+      key={item.id}
       myPinImage={false ? "./img/profile.png" : "./img/menuBtn.png"}
       myPinName={item.name}
       myPinScore={item.myScore}
@@ -56,16 +59,19 @@ function MyPins() {
 
 
   return (
-    <div className="Map">
+    <div className={styles.Map}>
       <Map style={{ width: '100vw', height: '100vh' }}
         center={{ lat: position[0], lng: position[1] }}
         level={3}
+        // isPanto={true}
+        // onCenterChanged={(target: kakao.maps.Map) => void}
+        keyboardShortcuts={true}
       >
         {markers}
         {infoWindows}
       </Map>
       <Sidebar setPosition={setPosition} nowPosition={getPosition} markerPositions={markerPositions} />
-      <button className="nowPosition" onClick={getPosition}>현위치</button>
+      <button className={styles.nowPosition} onClick={getPosition}>현위치</button>
       <PlusPin />
     </div >
   )

@@ -1,48 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { FiChevronsLeft } from "react-icons/fi"
-
-import { VscSearch } from "react-icons/vsc"
-import { IoPersonCircleSharp } from "react-icons/io5"
-import axios from 'axios';
-import './MatMate.css';
-import FriendPlus from './FriendPlus';
+import { FiChevronsLeft } from "react-icons/fi";
+import { VscSearch } from "react-icons/vsc";
+import { IoPersonCircleSharp } from "react-icons/io5";
+import axios from "axios";
+import "./MatMate.css";
+import FriendPlus from "./FriendPlus";
+import MatMate_Pagination from "./MatMate_Pagination";
 
 function MatMate(props) {
-
   const [friends, setFriends] = useState([]); // "초코#0001","얼레벌레#0301","달팽이#1041","민초#1664","체리#5310","감자탕#4787","쿠쿠다스#1456"
   const [search, setSearch] = useState("");
 
+  const [limit, setLimit] = useState(9); // 한 페이지에 보여줄 데이터의 개수
+  const [page, setPage] = useState(1); // 페이지 초기 값은 1페이지
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     axios({
       method: "GET",
       url: "http://localhost:4000/users",
-    }).then(response => setFriends(response.data));
+    }).then((response) => setFriends(response.data));
   }, []);
 
-  const list = friends
-    .filter((friend) => friend.nick.includes(search))
-    .map((item) => (
-      <>
-        <div id="MatMate_content">
-          <div id="MatMate_person">
-            <IoPersonCircleSharp />
-          </div>
-          <div id="MatMate_name">
-            {item.nick}#{item.code}
-          </div>
+  const handleChange = (e) => {
+    setPage(1);
+    setSearch(e.target.value);
+  };
+
+  const filtered = friends.filter((user) => user.nick.includes(search));
+  const list = filtered.slice(offset, offset + limit).map((item) => (
+    <>
+      <div id="MatMate_content">
+        <div id="MatMate_person">
+          <IoPersonCircleSharp />
         </div>
-        <hr />
-      </>
-    ));
+        <div id="MatMate_name">
+          {item.nick}#{item.code}
+        </div>
+      </div>
+      <hr />
+    </>
+  ));
 
   return (
     <div id="MatMate">
       <div id="MatMate_top">
-        <div
-          className="doubleLeft icon"
-          onClick={() => props.setToggleTab(1)}
-        >
+        <div className="doubleLeft icon" onClick={() => props.setToggleTab(1)}>
           <FiChevronsLeft />
         </div>
         <div id="MatMate_title">맛메이트({friends.length})</div>
@@ -57,12 +60,18 @@ function MatMate(props) {
           type="text"
           placeholder="친구 검색"
           // e: 이벤트, target: 해당 태그
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleChange}
         />
       </div>
+      <div>{list}</div>
       <FriendPlus />
+      <MatMate_Pagination
+        total={filtered.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </div>
   );
 }
-
 export default MatMate;

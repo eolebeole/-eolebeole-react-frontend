@@ -1,12 +1,11 @@
-
-
 import React from "react";
 import { FiChevronsLeft } from 'react-icons/fi'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { BsSearch } from 'react-icons/bs'
 
+import styles from "./MyRestaurant.module.css";
 
-import "./MyRestaurant.css";
+
 
 function MyRestaurant(props) {
 
@@ -20,16 +19,18 @@ function MyRestaurant(props) {
     const { markerPositions, setPosition } = props;
     const list = markerPositions.map((item) =>
         <>
-            <div id="MyRestaurant_content" onClick={() => {
+            <div className={styles.MyRestaurant_content} onClick={() => {
                 setPosition([item.x, item.y]);
                 setTimeout(() => item.place.show(), 300);
                 props.setToggleTab(7);
                 props.setIndex(item.id);
             }}>
-                <div id="MyRestaurant_image"><FaMapMarkerAlt /></div>
-                <div id="MyRestaurant_info">{item.name}</div>
-                <div id="MyRestaurant_info">{item.address}</div>
-                <div id="MyRestaurant_info">{item.place.dbInfoVisible}</div>
+                <div className={styles.MyRestaurant_image}><FaMapMarkerAlt /></div>
+                <div className={styles.MyRestaurant_info}>
+                    <div className={styles.MyRestaurant_name}>{item.name}</div>
+                    <div className={styles.MyRestaurant_address}>{item.address}</div>
+                    <div className={styles.MyRestaurant_roadNumberAddress}>{item.roadNumberAddress}</div>
+                </div>
             </div>
             <hr />
         </>)
@@ -37,14 +38,14 @@ function MyRestaurant(props) {
 
 
     return (
-        <div id="MyRestaurant">
-            <div id="MyRestaurant_top">
-                <div className="doubleLeft icon" onClick={() => {
+        <div className={styles.MyRestaurant}>
+            <div className={styles.MyRestaurant_top}>
+                <div className={styles.doubleLeft} onClick={() => {
                     props.setToggleTab(1);
                     props.nowPosition();
                 }}><FiChevronsLeft /></div>
-                <div id="MyRestaurant_title">나의맛집</div>
-                <div id="MyRestaurant_search"><BsSearch /></div>
+                <div className={styles.MyRestaurant_title}>나의맛집</div>
+                <div className={styles.MyRestaurant_search}><BsSearch /></div>
             </div>
             <div>
                 {list}
@@ -52,5 +53,7 @@ function MyRestaurant(props) {
         </div >
     );
 }
+
+
 
 export default MyRestaurant;

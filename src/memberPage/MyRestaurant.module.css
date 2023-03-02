@@ -1,0 +1,89 @@
+.MyRestaurant {
+  background-color: white;
+  z-index: 1;
+
+  height: 100vh;
+  width: 500px;
+}
+
+.MyRestaurant_top {
+  position: relative;
+
+  margin-bottom: 80px;
+}
+
+.doubleLeft {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+
+  font-size: 25px;
+  color: rgb(98, 119, 44);
+
+  cursor: pointer;
+}
+
+.MyRestaurant_title {
+  position: absolute;
+  top: 11px;
+  left: 38px;
+
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(98, 119, 44);
+}
+
+.MyRestaurant_search {
+  position: absolute;
+  top: 9px;
+  right: 15px;
+
+  font-size: 25px;
+  font-weight: bolder;
+  color: rgb(98, 119, 44);
+
+  cursor: pointer;
+}
+
+.MyRestaurant_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 500px;
+
+  cursor: pointer;
+}
+
+.MyRestaurant_image {
+  padding: 0 20px 0 20px;
+
+  font-size: 40px;
+  color: rgb(19, 119, 49);
+}
+
+.MyRestaurant_name {
+  padding-bottom: 5px;
+
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.MyRestaurant_address {
+  width: 350px;
+
+  font-size: 13px;
+  color: gray;
+}
+
+.MyRestaurant_roadNumberAddress {
+  width: 350px;
+
+  font-size: 13px;
+  color: gray;
+}
+
+hr {
+  height: 1px;
+  background-color: darkgray;
+}
