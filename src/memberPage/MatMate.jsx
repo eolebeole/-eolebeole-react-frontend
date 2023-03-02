@@ -46,23 +46,20 @@ function MatMate(props) {
   return (
     <div id="MatMate">
       <div id="MatMate_top">
-        <div
-          className="doubleLeft icon"
-          onClick={() => props.setToggleTab(1)}
-        >
+        <div className="doubleLeft icon" onClick={() => props.setToggleTab(1)}>
           <FiChevronsLeft />
         </div>
-        <div id="MatMate_title">맛메이트({friends.length})</div>
+        <div id="MatMate_title">맛메이트 ({friends.length})</div>
       </div>
 
       <div id="MatMate_body">
         <div id="MatMate_search">
           <VscSearch />
         </div>
-        <input
+        <input className="input"
           id="MatMate_findInput"
           type="text"
-          placeholder="친구 검색"
+          placeholder="친 구  검 색"
           onChange={handleChange}
         />
       </div>

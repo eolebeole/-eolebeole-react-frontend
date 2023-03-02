@@ -4,9 +4,9 @@
   text-align: center;
 }
 
-#nowPosition {
+.nowPosition {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 
   top: 5px;
   left: 50%;

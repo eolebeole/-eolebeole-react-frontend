@@ -6,3 +6,5 @@ memberPage : App.js -> MyPins(지도) -> Sidebar(사이드바 메뉴) -> MyResta
                                                             -> MatMate (맛메이트)
                                                             -> GuestBook (방명록)
                                     -> PlusPin(맛집 추가)
+
+모달창 CSS 우선순위 높은 파일 : SettingInfo.css

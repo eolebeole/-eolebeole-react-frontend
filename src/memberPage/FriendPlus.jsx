@@ -67,7 +67,7 @@ function FriendPlus() {
               <button className="close" onClick={closeModal}>
                 &times;
               </button>
-              <h1>친구 등록</h1>
+              <h2>친구 등록</h2>
             </header>
             <input id="MatMate_friend" type="text" placeholder="닉네임을 입력해주세요." />
             <div id="FriendPlus_search">
