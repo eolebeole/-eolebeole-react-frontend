@@ -1,17 +1,35 @@
-import { React } from 'react';
-
-import { FiChevronsLeft } from 'react-icons/fi'
-
-
+import React, { useState } from 'react';
+import { FiChevronsLeft } from 'react-icons/fi';
+import './Setting.css';
+import SettingProfile from './SettingProfile';
+import SettingInfo from './SettingInfo';
 
 function Setting(props) {
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
     return (
-        <div>
-            <div className="bars" onClick={() => props.setToggleTab(1)}>
-                <div className="icon"><FiChevronsLeft /></div>
+       <div id="Setting">
+        <div id="Setting_top">
+          <div
+            className="doubleLeft icon"
+            onClick={() => props.setToggleTab(1)}
+          >
+            <FiChevronsLeft />
+          </div>
+              <div id="Setting_title">설정</div>
             </div>
-            <h3>Setting page</h3>
+            <div id="space"></div>
+            <SettingProfile/>
+            <SettingInfo/>
+            <input type="button" id="Setting_logout" value="로그아웃"></input>
         </div>
     );
 };

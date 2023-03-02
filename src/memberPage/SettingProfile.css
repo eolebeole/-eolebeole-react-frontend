@@ -1,0 +1,172 @@
+#Setting_profile{
+  display:block;
+  width: 350px;
+  height: 45px;
+  font-size: 16px;
+  margin: auto;
+  background-color: rgb(98, 119, 44);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#Setting_profile:hover{
+  opacity: 0.8;
+}
+
+.modal {
+  /* 화면을 위아래로 스크롤 하더라도 고정 */
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+
+  animation: modal-bg-show 0.3s;
+}
+
+
+@keyframes modal-show {
+  from {
+      opacity: 0;
+      margin-top: -50px;
+  }
+
+  to {
+      opacity: 1;
+      margin-top: 0;
+  }
+}
+
+
+@keyframes modal-bg-show {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+
+.modal>section {
+  display: flex;
+  flex-direction: column;
+
+  width: 450px;
+  height: 600px;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 0.8rem;
+
+  overflow: hidden;
+
+  animation: modal-show 0.3s;
+}
+
+
+.modal>section>header {
+  display: block;
+
+  height: 35px;
+  background-color: #d6ebb1;
+  padding: 16px 16px 16px 16px;
+}
+
+
+.modal>section>header button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+
+  font-size: 30px;
+  font-weight: 700;
+  color: #999;
+
+  cursor: pointer;
+}
+
+.modal>section>header h2 {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+
+  color: rgb(98, 119, 44);
+}
+
+#SettingProfile_photo {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #999;
+  border-radius: 100px;
+  margin: 50px auto 50px auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#SettingProfile_photo:hover {
+  opacity: 0.8;
+}
+
+#SettingProfile_name {
+  display: flex;
+  margin: 0px auto 0px auto;
+}
+
+#SettingProfile_name > #Setting_nickname {
+  width: 8rem;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#SettingProfile_name > #sharp {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0px 5px 0px 5px;
+}
+
+#SettingProfile_name > #Setting_code {
+  width: 8rem;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#SettingProfile_save {
+  width: 350px;
+  height: 40px;
+  display: block;
+  background-color: rgb(98, 119, 44);
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 100px auto 10px auto;
+  cursor: pointer;
+}
+
+#SettingProfile_save:hover {
+  opacity: 0.8;
+}
+
+
+

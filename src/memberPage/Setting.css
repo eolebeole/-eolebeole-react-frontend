@@ -1,0 +1,43 @@
+/* 설정 전체창 */
+#Setting {
+  background-color: white;
+  z-index: 1;
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 500px;
+}
+
+/* 설정 상단부분 */
+#Setting_top {
+  display: flex;
+  padding-top: 10px;
+}
+
+/* 설정 타이틀부분 */
+#Setting_title {
+  position: relative;
+  left: 40px;
+  padding-top: 1px;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(98, 119, 44);
+}
+#space {
+  margin-top: 200px;
+}
+
+#Setting_logout{
+  display: block;
+  width: 350px;
+  height: 45px;
+  font-size: 16px;
+  margin: 200px auto;
+  background-color: rgb(215, 154, 71);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+

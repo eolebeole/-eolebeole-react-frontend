@@ -1,0 +1,183 @@
+#Setting_info{
+  display: block;
+  width: 350px;
+  height: 45px;
+  font-size: 16px;
+  margin: 50px auto;
+  background-color: rgb(98, 119, 44);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#Setting_info:hover{
+  opacity: 0.8;
+}
+
+.modal {
+  /* 화면을 위아래로 스크롤 하더라도 고정 */
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+
+  animation: modal-bg-show 0.3s;
+}
+
+
+@keyframes modal-show {
+  from {
+      opacity: 0;
+      margin-top: -50px;
+  }
+
+  to {
+      opacity: 1;
+      margin-top: 0;
+  }
+}
+
+
+@keyframes modal-bg-show {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+
+.modal>section {
+  display: flex;
+  flex-direction: column;
+
+  width: 450px;
+  height: 600px;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 0.8rem;
+
+  overflow: hidden;
+
+  animation: modal-show 0.3s;
+}
+
+
+.modal>section>header {
+  display: block;
+
+  height: 35px;
+  background-color: #d6ebb1;
+  padding: 16px 16px 16px 16px;
+}
+
+
+.modal>section>header button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+
+  font-size: 30px;
+  font-weight: 700;
+  color: #999;
+
+  cursor: pointer;
+}
+
+.modal>section>header h2 {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+
+  color: rgb(98, 119, 44);
+}
+
+#SettingInfo_body {
+  padding: 0.5rem 2rem;
+  overflow-y: auto;
+}
+
+#notice {
+  text-align: right;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgb(215, 154, 71);
+  margin: 0px 20px 0px 0px;
+}
+
+#SettingInfo_items {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 28px;
+}
+
+#SettingInfo_items > label {
+  display:flexbox;
+}
+
+#SettingInfo_items > label.must {
+  font-size: 20px;
+  color: rgb(215, 154, 71);
+}
+
+#SettingInfo_items > #info_birth > select {
+  width: 107px;
+  height:35px;
+  margin: 5px 5px 10px 0px;
+  font-size: 15px;
+}
+
+#SettingInfo_items > #info_gender > #male, #gender_not{
+  margin-left: 20px;
+}
+
+#SettingInfo_body input:not([type=radio]) {
+  display: block;
+  width: 20rem;
+  height: 35px;
+  margin:5px 0px 10px 0px;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+#SettingInfo_footer {
+  padding: 0.5rem;
+}
+
+#SettingInfo_footer button{
+  display: absolute;
+  width: 340px;
+  height: 40px;
+  background-color: rgb(98, 119, 44);
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+#SettingInfo_footer button:hover {
+  opacity: 0.8;
+}
+
+
