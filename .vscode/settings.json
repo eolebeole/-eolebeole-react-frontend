@@ -1,0 +1,12 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "Jota0222.multi-formatter",
+    "multiFormatter.formatterList": [
+      "esbenp.prettier-vscode",
+      "mrmlnc.vscode-postcss-sorting"
+    ]
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

@@ -1,14 +1,14 @@
 .kakaoMap {
-    position: relative;
-    z-index: 1;
-    text-align: center;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 .nowPosition {
-    position: absolute;
-    z-index: 1;
+  position: absolute;
+  z-index: 1;
 
-    top: 5px;
-    left: 50%;
-    /* TODO: left값 버튼크기에 맞춰 미세조정 */
+  top: 5px;
+  left: 50%;
+  /* TODO: left값 버튼크기에 맞춰 미세조정 */
 }

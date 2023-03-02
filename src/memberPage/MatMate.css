@@ -1,88 +1,88 @@
 /* 맛메이트 전체창 */
 #MatMate {
-    background-color: white;
-    z-index: 1;
-    position: relative;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 500px;
+  background-color: white;
+  z-index: 1;
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 500px;
 }
 
 /* 맛메이트 상단부 */
 #MatMate_top {
-    display: flex;
-    padding-top: 10px;
+  display: flex;
+  padding-top: 10px;
 }
 
 /* 맛메이트 상단부 바로 아래 */
 #MatMate_content {
-    display: flex;
-    padding-top: 5px;
-    font-weight: 600;
+  display: flex;
+  padding-top: 5px;
+  font-weight: 600;
 }
 
 /* 친구 검색 돋보기 */
 #MatMate_search {
-    position: absolute;
-    top: 53px;
-    right: 444.1px;
-    width: 35px;
-    height: 26px;
-    text-align: center;
-    padding-top: 8px;
-    background-color: rgb(201, 201, 201);
-    border-radius: 1.5px 0 0 1.5px;
+  position: absolute;
+  top: 53px;
+  right: 444.1px;
+  width: 35px;
+  height: 26px;
+  text-align: center;
+  padding-top: 8px;
+  background-color: rgb(201, 201, 201);
+  border-radius: 1.5px 0 0 1.5px;
 }
 
 /* 친구 검색창 */
 #MatMate_findInput {
-    padding-left: 3em;
-    height: 2rem;
-    width: 26rem;
-    margin: 1rem;
+  padding-left: 3em;
+  height: 2rem;
+  width: 26rem;
+  margin: 1rem;
 }
 
 /* 친구 추가창 */
 #MatMate_plus {
-    padding-top: 10px;
-    padding-right: 10px;
-    font-size: 25px;
-    color: rgb(98, 119, 44);
-    cursor: pointer;
+  padding-top: 10px;
+  padding-right: 10px;
+  font-size: 25px;
+  color: rgb(98, 119, 44);
+  cursor: pointer;
 }
 
 /* 맛메이트(숫자) 부분 */
 #MatMate_title {
-    position: relative;
-    left: 35px;
-    padding-top: 5px;
+  position: relative;
+  left: 35px;
+  padding-top: 5px;
 }
 
 /* 맛메이트 리스트 이름 */
 #MatMate_name {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 /* 친구추가 버튼 */
 #MatMate_plus {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /* 맛메이트창 기본프로필 */
 #MatMate_person {
-    padding-left: 20px;
-    font-size: 50px;
-    color: rgb(19, 119, 49);
+  padding-left: 20px;
+  font-size: 50px;
+  color: rgb(19, 119, 49);
 }
 
 hr {
-    height: 1px;
-    background-color: darkgray;
+  height: 1px;
+  background-color: darkgray;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
