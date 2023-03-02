@@ -1,0 +1,12 @@
+.doubleLeft {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 25px;
+    color: rgb(98, 119, 44);
+}
