@@ -1,16 +1,14 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BiPlus } from 'react-icons/bi';
+import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { VscSearch } from 'react-icons/vsc';
+import { VscSearch } from "react-icons/vsc";
 import FriendPlus_Pagination from "./FriendPlus_Pagination";
 
 import "./FriendPlus.css";
 import "./PlusPin.css";
 
 function FriendPlus() {
-
   const [modalOpen, setModalOpen] = useState(false);
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
@@ -22,10 +20,10 @@ function FriendPlus() {
 
   const openModal = () => {
     setModalOpen(true);
-  }
+  };
   const closeModal = () => {
     setModalOpen(false);
-  }
+  };
 
   const handleChange = (e) => {
     setPage(1);
@@ -40,20 +38,17 @@ function FriendPlus() {
   }, []);
 
   const filtered = users.filter((user) => user.nick.includes(search));
-  const list = filtered.slice(offset, offset + limit)
-    .map((item) => (
-      <>
-        <div id="FriendPlus_content" key={item.id}>
-          <div id="FriendPlus_person">
-            <IoPersonCircleSharp />
-          </div>
-          <div id="FriendPlus_name">
-            {item.nick}#{item.code}
-          </div>
-        </div>
-        <hr />
-      </>
-    ));
+  const list = filtered.slice(offset, offset + limit).map((item) => <>
+    <div id="FriendPlus_content" key={item.id}>
+      <div id="FriendPlus_person">
+        <IoPersonCircleSharp />
+      </div>
+      <div id="FriendPlus_name">
+        {item.nick}#{item.code}
+      </div>
+    </div>
+    <hr />
+  </>);
 
   return (
     <div>
@@ -69,7 +64,6 @@ function FriendPlus() {
               </button>
               <h1>친구 등록</h1>
             </header>
-            <input id="MatMate_friend" type="text" placeholder="닉네임을 입력해주세요." />
             <div id="FriendPlus_search">
               <VscSearch />
             </div>
@@ -89,10 +83,10 @@ function FriendPlus() {
               />
             </div>
             <input id="MatMate_friendBtn" type="button" value="친구 등록" />
-          </section >
+          </section>
         ) : null}
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
 
