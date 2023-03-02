@@ -38,19 +38,19 @@ function FriendPlus() {
 
   const filtered = users.filter((user) => user.nick.includes(search));
   const list = filtered.slice(offset, offset + limit)
-                       .map((item) => (
-    <>
-      <div id="FriendPlus_content">
-        <div id="FriendPlus_person">
-          <IoPersonCircleSharp />
+    .map((item) => (
+      <>
+        <div id="FriendPlus_content">
+          <div id="FriendPlus_person">
+            <IoPersonCircleSharp />
+          </div>
+          <div id="FriendPlus_name">
+            {item.nick}#{item.code}
+          </div>
         </div>
-        <div id="FriendPlus_name">
-          {item.nick}#{item.code}
-        </div>
-      </div>
-      <hr />
-    </>
-  ));
+        <hr />
+      </>
+    ));
 
   return (
     <div>

@@ -1,11 +1,11 @@
 .kakaoMap {
-    position: relative;
-    z-index: 1;
-    text-align: center;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 #nowPosition {
-    position: absolute;
-    z-index: 2;
-    top: 5px;
+  position: absolute;
+  z-index: 2;
+  top: 5px;
 }

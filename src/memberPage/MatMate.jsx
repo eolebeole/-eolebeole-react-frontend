@@ -21,7 +21,7 @@ function MatMate(props) {
       url: "http://localhost:4000/users",
     }).then((response) => setFriends(response.data));
   }, []);
-  
+
   const handleChange = (e) => {
     setPage(1);
     setSearch(e.target.value);
@@ -74,4 +74,5 @@ function MatMate(props) {
     </div>
   );
 }
+
 export default MatMate;
