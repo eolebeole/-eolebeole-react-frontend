@@ -1,4 +1,11 @@
 /* 설정 전체창 */
+.doubleLeft {
+  position: absolute;
+  left: 5px;
+
+  cursor: pointer;
+}
+
 #Setting {
   background-color: white;
   z-index: 1;
@@ -20,7 +27,7 @@
   position: relative;
   left: 40px;
   padding-top: 1px;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 18px;
   color: rgb(98, 119, 44);
 }

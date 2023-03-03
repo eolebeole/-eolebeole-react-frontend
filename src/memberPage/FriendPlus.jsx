@@ -62,7 +62,7 @@ function FriendPlus() {
               <button className="close" onClick={closeModal}>
                 &times;
               </button>
-              <h1>친구 등록</h1>
+              <h2>친구 등록</h2>
             </header>
             <div id="FriendPlus_search">
               <VscSearch />

@@ -116,7 +116,7 @@ function SettingInfo() {
               </div>
             </div>
             <div id="SettingInfo_footer">
-            <button>저장</button>
+              <button>저장</button>
             </div>
           </section>
         ) : null}
