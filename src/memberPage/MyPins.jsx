@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
 import { Place } from './Place'; // mobx 모듈
+import axios from 'axios';
 
-import markerPositions from './data'; /* TODO: DB 연동되면 삭제 */
 import MarkerAndInfo from './MarkerAndInfo';
 import PlusPin from './PlusPin';
 import Sidebar from './Sidebar';
@@ -16,6 +16,14 @@ const { kakao } = window;
 function MyPins() {
 
   const [position, setPosition] = useState([33.450701, 126.570667]);
+  const { restaurants, setRestaurants } = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "http://localhost:4000/places",
+    }).then(response => setRestaurants(response.data));
+  }, []);
 
   function successGetPosition(position) {
     var lat = position.coords.latitude;
@@ -38,11 +46,11 @@ function MyPins() {
 
   useEffect(() => {
 
-    markerPositions.forEach((item) => {
+    restaurants.forEach((item) => {
       item.place = new Place(item);
     });
 
-    setMarkers(markerPositions.map((item) => <MarkerAndInfo
+    setMarkers(restaurants.map((item) => <MarkerAndInfo
       /* TODO: DB에 이미지가 없을 경우 사용할 기본이미지 제작 및 아래에 기입*/
       key={item.id}
       myPinImage={false ? "./img/profile.png" : "./img/menuBtn.png"}
