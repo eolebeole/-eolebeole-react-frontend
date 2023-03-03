@@ -11,8 +11,33 @@
 
 /* 맛메이트 상단부 */
 #MatMate_top {
-  display: flex;
-  padding-top: 10px;
+  position: relative;
+  padding-top: 6px;
+
+  margin-bottom: 37px;
+}
+
+.doubleLeft {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+
+  font-size: 25px;
+  color: rgb(98, 119, 44);
+
+  cursor: pointer;
+}
+
+/* 맛메이트(숫자) 부분 */
+#MatMate_title {
+  position: absolute;
+  top: 11px;
+  left: 38px;
+
+  font-size: 18px;
+  font-weight: bolder;
+  /* line-height: 26px; */
+  color: rgb(98, 119, 44);
 }
 
 /* 맛메이트 상단부 바로 아래 */
@@ -25,38 +50,37 @@
 /* 친구 검색 돋보기 */
 #MatMate_search {
   position: absolute;
-  top: 53px;
-  right: 444.1px;
+  top: 54px;
+  right: 445px;
   width: 35px;
-  height: 26px;
+  height: 35px;
   text-align: center;
-  padding-top: 8px;
-  background-color: rgb(201, 201, 201);
-  border-radius: 1.5px 0 0 1.5px;
+  font-size: 23px;
+  padding-top: 6px;
+  background-color: rgb(199, 211, 127);
+  border-radius: 3px;
+}
+
+#MatMate_body {
+  margin-left: 9px;
 }
 
 /* 친구 검색창 */
 #MatMate_findInput {
-  padding-left: 3em;
-  height: 2rem;
+  padding-left: 41px;
+  padding-top: 4px;
+  height: 37px;
   width: 26rem;
   margin: 1rem;
 }
 
 /* 친구 추가창 */
 #MatMate_plus {
-  padding-top: 10px;
+  padding-top: 9px;
   padding-right: 10px;
   font-size: 25px;
   color: rgb(98, 119, 44);
   cursor: pointer;
-}
-
-/* 맛메이트(숫자) 부분 */
-#MatMate_title {
-  position: relative;
-  left: 35px;
-  padding-top: 5px;
 }
 
 /* 맛메이트 리스트 이름 */

@@ -1,6 +1,6 @@
 {
   "[css]": {
-    "editor.defaultFormatter": "Jota0222.multi-formatter",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "multiFormatter.formatterList": [
       "esbenp.prettier-vscode",
       "mrmlnc.vscode-postcss-sorting"

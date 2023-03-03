@@ -17,19 +17,19 @@ nav {
 }
 
 #pagination_button:hover {
-    background: rgb(199, 211, 127);
-    cursor: pointer;
-    transform: translateY(-2px);
+  background: rgb(199, 211, 127);
+  cursor: pointer;
+  transform: translateY(-2px);
 }
 
 #pagination_button[disabled] {
-    background: rgb(185, 185, 185);
-    cursor: revert;
-    transform: revert;
+  background: rgb(185, 185, 185);
+  cursor: revert;
+  transform: revert;
 }
 
 #pagination_button[aria-current] {
-    background: rgb(98, 119, 44);
-    cursor: revert;
-    transform: revert;
+  background: rgb(98, 119, 44);
+  cursor: revert;
+  transform: revert;
 }

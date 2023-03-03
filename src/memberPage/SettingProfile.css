@@ -1,5 +1,5 @@
-#Setting_profile{
-  display:block;
+#Setting_profile {
+  display: block;
   width: 350px;
   height: 45px;
   font-size: 16px;
@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-#Setting_profile:hover{
+#Setting_profile:hover {
   opacity: 0.8;
 }
 
@@ -28,7 +28,6 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-
 .modal.openModal {
   display: flex;
   align-items: center;
@@ -36,32 +35,29 @@
   animation: modal-bg-show 0.3s;
 }
 
-
 @keyframes modal-show {
   from {
-      opacity: 0;
-      margin-top: -50px;
+    opacity: 0;
+    margin-top: -50px;
   }
 
   to {
-      opacity: 1;
-      margin-top: 0;
+    opacity: 1;
+    margin-top: 0;
   }
 }
-
 
 @keyframes modal-bg-show {
   from {
-      opacity: 0;
+    opacity: 0;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-
-.modal>section {
+.modal > section {
   display: flex;
   flex-direction: column;
 
@@ -76,17 +72,15 @@
   animation: modal-show 0.3s;
 }
 
-
-.modal>section>header {
+.modal > section > header {
   display: block;
 
-  height: 35px;
+  height: 50px;
   background-color: #d6ebb1;
   padding: 16px 16px 16px 16px;
 }
 
-
-.modal>section>header button {
+.modal > section > header button {
   position: absolute;
   top: 18px;
   right: 15px;
@@ -103,7 +97,7 @@
   cursor: pointer;
 }
 
-.modal>section>header h2 {
+.modal > section > header h2 {
   position: absolute;
   top: 18px;
   left: 25px;
@@ -167,6 +161,3 @@
 #SettingProfile_save:hover {
   opacity: 0.8;
 }
-
-
-

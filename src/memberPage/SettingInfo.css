@@ -1,4 +1,14 @@
-#Setting_info{
+.doubleLeft {
+  position: absolute;
+  left: 5px;
+
+  cursor: pointer;
+
+  font-size: 25px;
+  color: rgb(98, 119, 44);
+}
+
+#Setting_info {
   display: block;
   width: 350px;
   height: 45px;
@@ -12,7 +22,7 @@
   cursor: pointer;
 }
 
-#Setting_info:hover{
+#Setting_info:hover {
   opacity: 0.8;
 }
 
@@ -28,7 +38,6 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-
 .modal.openModal {
   display: flex;
   align-items: center;
@@ -36,34 +45,32 @@
   animation: modal-bg-show 0.3s;
 }
 
-
 @keyframes modal-show {
   from {
-      opacity: 0;
-      margin-top: -50px;
+    opacity: 0;
+    margin-top: -50px;
   }
 
   to {
-      opacity: 1;
-      margin-top: 0;
+    opacity: 1;
+    margin-top: 0;
   }
 }
-
 
 @keyframes modal-bg-show {
   from {
-      opacity: 0;
+    opacity: 0;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-
-.modal>section {
+.modal > section {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   width: 450px;
   height: 600px;
@@ -76,17 +83,18 @@
   animation: modal-show 0.3s;
 }
 
+.modal > section > header {
+  position: relative;
 
-.modal>section>header {
-  display: block;
-
-  height: 35px;
+  width: 450px;
+  height: 70px;
   background-color: #d6ebb1;
-  padding: 16px 16px 16px 16px;
+  padding: 16px;
+
+  border-radius: 0.8rem;
 }
 
-
-.modal>section>header button {
+.modal > section > header button {
   position: absolute;
   top: 18px;
   right: 15px;
@@ -103,11 +111,13 @@
   cursor: pointer;
 }
 
-.modal>section>header h2 {
+.modal > section > header h2 {
   position: absolute;
-  top: 18px;
+  top: 1px;
   left: 25px;
 
+  font-size: 25px;
+  font-weight: bold;
   color: rgb(98, 119, 44);
 }
 
@@ -131,7 +141,7 @@
 }
 
 #SettingInfo_items > label {
-  display:flexbox;
+  display: flexbox;
 }
 
 #SettingInfo_items > label.must {
@@ -141,20 +151,21 @@
 
 #SettingInfo_items > #info_birth > select {
   width: 107px;
-  height:35px;
+  height: 35px;
   margin: 5px 5px 10px 0px;
   font-size: 15px;
 }
 
-#SettingInfo_items > #info_gender > #male, #gender_not{
+#SettingInfo_items > #info_gender > #male,
+#gender_not {
   margin-left: 20px;
 }
 
-#SettingInfo_body input:not([type=radio]) {
+#SettingInfo_body input:not([type="radio"]) {
   display: block;
   width: 20rem;
   height: 35px;
-  margin:5px 0px 10px 0px;
+  margin: 5px 0px 10px 0px;
   padding-left: 5px;
   font-size: 15px;
 }
@@ -163,7 +174,7 @@
   padding: 0.5rem;
 }
 
-#SettingInfo_footer button{
+#SettingInfo_footer button {
   display: absolute;
   width: 340px;
   height: 40px;
@@ -179,5 +190,3 @@
 #SettingInfo_footer button:hover {
   opacity: 0.8;
 }
-
-
