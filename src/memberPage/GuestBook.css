@@ -1,0 +1,40 @@
+#GuestBook {
+    background-color: white;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 500px;
+  }
+  
+  #GuestBook_top {
+    display: flex;
+    padding-top: 10px;
+  }
+
+  #GuestBook_title {
+    position: relative;
+    left: 35px;
+    padding-top: 5px;
+  }
+
+  #GuestBook_body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #GuestBook_item {
+    background-color: rgb(255, 230, 5);
+    min-width: 150px;
+    min-height: 100px;
+    margin: 5px;
+  }
+
+  #GuestBook_btn {
+    opacity: 80%;
+  }
+
+  #GuestBook_btn :hover {
+    opacity: 100%;
+  }
