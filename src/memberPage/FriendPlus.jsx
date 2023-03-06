@@ -3,10 +3,15 @@ import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { VscSearch } from "react-icons/vsc";
-import FriendPlus_Pagination from "./FriendPlus_Pagination";
+import Pagination from "./Pagination";
 
 import "./FriendPlus.css";
 import "./PlusPin.css";
+
+const fetchData = async () => {
+  let response = await axios.get('http://localhost:4000/users');
+  return response.data;
+}
 
 function FriendPlus() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -75,7 +80,7 @@ function FriendPlus() {
             />
             <div>{list}</div>
             <div>
-              <FriendPlus_Pagination
+              <Pagination
                 total={filtered.length}
                 limit={limit}
                 page={page}
