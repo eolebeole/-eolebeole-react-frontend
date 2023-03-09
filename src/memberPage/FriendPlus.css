@@ -1,135 +1,30 @@
-#plusBtn {
-  position: absolute;
-  z-index: 2;
-  right: 10px;
-  top: 45px;
-
+#FriendPlus_content {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  width: 30px;
-  height: 30px;
-
-  cursor: pointer;
+  padding-top: 5px;
+  font-weight: 600;
 }
-
-.modal {
-  /* 화면을 위아래로 스크롤 하더라도 고정 */
-  position: fixed;
-  z-index: 8;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  display: none;
-
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal.openModal {
-  display: flex;
-  align-items: center;
-
-  animation: modal-bg-show 0.3s;
-}
-
-@keyframes modal-show {
-  from {
-    opacity: 0;
-    margin-top: -50px;
-  }
-
-  to {
-    opacity: 1;
-    margin-top: 0;
-  }
-}
-
-@keyframes modal-bg-show {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.modal>section {
-  display: flex;
-  flex-direction: column;
-
-  width: 450px;
-  height: 600px;
-  background-color: #fff;
-  /* margin: 0 auto; */
-  border-radius: 0.8rem;
-
-  overflow: hidden;
-
-  animation: modal-show 0.3s;
-}
-
-.modal > section > header {
+#FriendPlus_search_icon{
   position: relative;
-
-  height: 35px;
-  background-color: #d6ebb1;
-  padding: 16px 16px 16px 16px;
-}
-
-.modal > section > header button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-
-  width: 30px;
-  background-color: transparent;
-  border: 0;
-  outline: none;
-
-  font-size: 21px;
-  font-weight: 700;
-  color: #999;
-
-  cursor: pointer;
-}
-
-.modal > section > header h1 {
-  position: absolute;
-  left: 25px;
-
-  color: rgba(17, 174, 111, 0.6);
-  font-weight: 700;
-}
-
-#MatMate_friendBtn {
-  width: 80px;
-  height: 35px;
-  margin: auto;
-}
-
-#MatMate_friend {
-  position: relative;
-  left: 105px;
-  height: 35px;
-  width: 220px;
-  padding-left: 3em;
-}
-
-#FriendPlus_search {
-  position: relative;
-  top: 35.5px;
-  left: 106px;
-  z-index: 1000;
-  width: 35px;
-  height: 28.5px;
+  z-index: 3;
+  top: 49px;
+  left: 11px;
+  width: 37px;
+  height: 38px;
   text-align: center;
+  font-size: 23px;
   padding-top: 8px;
-  background-color: rgb(201, 201, 201);
-  border-radius: 1.5px 0 0 1.5px;
+  color: rgb(166, 166, 166);
+  background-color: rgb(237, 237, 237);
+  border-radius: 5px 0 0 5px;
+}
+
+#FriendPlus_search_input{
+  position: relative;
+  padding-left: 41px;
+  padding-top: 4px;
+  height: 40px;
+  width: 26rem;
+  margin: 1rem;
 }
 
 #FriendPlus_person {
@@ -142,8 +37,11 @@
   padding: 1rem;
 }
 
-#FriendPlus_content {
-  display: flex;
-  padding-top: 5px;
-  font-weight: 600;
+.FriendPlus_button {
+background-color: rgb(98, 119, 44);
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+padding: 8px;
 }

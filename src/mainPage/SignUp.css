@@ -1,0 +1,148 @@
+.signupSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(251, 247, 242);
+  margin: 0 auto;
+  border-radius: 0.8rem;
+
+  overflow: hidden;
+}
+
+.signUpLogo {
+  width: 200px;
+  /* height: 50px; */
+}
+
+.signupClose {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+.modal > section > header button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+
+  font-size: 30px;
+  font-weight: 700;
+  color: #999;
+
+  cursor: pointer;
+}
+
+.modal > section > header h2 {
+  position: absolute;
+  top: 1px;
+  left: 25px;
+
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(98, 119, 44);
+}
+
+.SignUp_item {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#SignUp_body {
+  width: 500px;
+  padding: 0.5rem 2rem;
+  overflow-y: auto;
+}
+
+#notice {
+  text-align: right;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgb(215, 154, 71);
+  margin: 0px 20px 0px 0px;
+}
+
+#SignUp_items {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 28px;
+
+}
+
+#SignUp_items > label {
+  display: flexbox;
+}
+
+#SignUp_items > label.must {
+  font-size: 20px;
+  color: rgb(215, 154, 71);
+}
+
+#SignUp_items > #info_birth > select {
+  width: 107px;
+  height: 35px;
+  margin: 5px 5px 10px 0px;
+  font-size: 15px;
+}
+
+#SignUp_items > #info_gender > #male,
+#gender_not {
+  margin-left: 20px;
+}
+
+.SignUp_input {
+  text-indent: 1em;
+}
+
+#info_gender {
+  font-size: 15px;
+}
+
+input {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+#SignUp_body input:not([type="radio"]) {
+  display: block;
+  width: 20rem;
+  height: 35px;
+  margin: 5px 0px 10px 0px;
+  padding-left: 5px;
+  font-size: 15px;
+}
+
+#SignUp_footer {
+  padding: 0.5rem;
+}
+
+#SignUp_footer button {
+  margin-top: 30px;
+  display: absolute;
+  width: 380px;
+  height: 40px;
+  background-color: rgb(98, 119, 44);
+  font-size: 16px;
+  font-weight: bolder;
+  padding-top: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+#SignUp_footer button:hover {
+  opacity: 0.8;
+}

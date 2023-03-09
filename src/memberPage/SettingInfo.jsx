@@ -75,16 +75,8 @@ function SettingInfo() {
                 <label>생년월일</label>
                 <div id="info_birth">
                   <BirthYearSelect />
-                  <select name="birth_month">
-                    <option disabled selected>
-                      월
-                    </option>
-                  </select>
-                  <select name="birth_day">
-                    <option disabled selected>
-                      일
-                    </option>
-                  </select>
+                  <BirthMonthSelect />
+                  <BirthDaySelect />
                 </div>
               </div>
 
@@ -149,6 +141,57 @@ function BirthYearSelect() {
     </select>
   );
 }
+
+function BirthMonthSelect() {
+  const [months, setMonths] = useState([]);
+
+  function handleFocus(e) {
+    if (!months.length) {
+      const months = Array.from({ length: 12 }, (_, i) => 1 + i);
+      const monthOptions = months.map((month) => (
+        <option key={month} value={month}>
+          {month}
+        </option>
+      ));
+      setMonths(monthOptions);
+    }
+  }
+
+  return (
+    <select name="birth_month" onFocus={handleFocus}>
+      <option disabled selected>
+        월
+      </option>
+      {months}
+    </select>
+  );
+}
+
+function BirthDaySelect() {
+  const [days, setDays] = useState([]);
+
+  function handleFocus(e) {
+    if (!days.length) {
+      const days = Array.from({ length: 31 }, (_, i) => 1 + i);
+      const dayOptions = days.map((day) => (
+        <option key={day} value={day}>
+          {day}
+        </option>
+      ));
+      setDays(dayOptions);
+    }
+  }
+
+  return (
+    <select name="birth_day" onFocus={handleFocus}>
+      <option disabled selected>
+        일
+      </option>
+      {days}
+    </select>
+  );
+}
+
 
 function Radio(props) {
   return <input name="gender" type="radio" {...props} />;

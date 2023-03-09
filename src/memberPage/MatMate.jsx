@@ -11,7 +11,7 @@ import './MatMate.css';
 function MatMate(props) {
   const [friends, setFriends] = useState([]); // "초코#0001","얼레벌레#0301","달팽이#1041","민초#1664","체리#5310","감자탕#4787","쿠쿠다스#1456"
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState(9); // 한 페이지에 보여줄 데이터의 개수
+  const [limit, setLimit] = useState(6); // 한 페이지에 보여줄 데이터의 개수
   const [page, setPage] = useState(1); // 페이지 초기 값은 1페이지
   const offset = (page - 1) * limit;
 

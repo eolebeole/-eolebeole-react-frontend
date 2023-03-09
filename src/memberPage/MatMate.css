@@ -51,15 +51,16 @@
 /* 친구 검색 돋보기 */
 #MatMate_search {
   position: absolute;
-  top: 53px;
+  top: 54px;
   right: 444.1px;
-  width: 37px;
-  height: 38px;
+  width: 36px;
+  height: 35px;
   text-align: center;
   font-size: 23px;
   padding-top: 8px;
-  background-color: rgb(201, 201, 201);
-  border-radius: 1.5px 0 0 1.5px;
+  color: rgb(166, 166, 166);
+  background-color: rgb(237, 237, 237);
+  border-radius: 5px 0 0 5px;
 }
 
 #MatMate_body {

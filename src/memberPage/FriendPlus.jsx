@@ -19,7 +19,7 @@ function FriendPlus() {
   const [search, setSearch] = useState("");
 
   // 페이징 처리
-  const [limit, setLimit] = useState(5); // 한 페이지에 보여줄 데이터의 개수
+  const [limit, setLimit] = useState(3); // 한 페이지에 보여줄 데이터의 개수
   const [page, setPage] = useState(1); // 페이지 초기 값은 1페이지
   const offset = (page - 1) * limit;
 
@@ -69,15 +69,17 @@ function FriendPlus() {
               </button>
               <h2>친구 등록</h2>
             </header>
-            <div id="FriendPlus_search">
-              <VscSearch />
+            <div className="FriendPlus_content">
+              <div id="FriendPlus_search_icon">
+                <VscSearch />
+              </div>
+              <input
+                id="FriendPlus_search_input"
+                type="text"
+                placeholder="닉네임을 입력해주세요."
+                onChange={handleChange}
+              />
             </div>
-            <input
-              id="MatMate_friend"
-              type="text"
-              placeholder="닉네임을 입력해주세요."
-              onChange={handleChange}
-            />
             <div>{list}</div>
             <div>
               <Pagination
@@ -87,7 +89,7 @@ function FriendPlus() {
                 setPage={setPage}
               />
             </div>
-            <input id="MatMate_friendBtn" type="button" value="친구 등록" />
+            <input className="FriendPlus_button" id="MatMate_friendBtn" type="button" value="친구 등록" />
           </section>
         ) : null}
       </div>
