@@ -19,8 +19,8 @@ function Login() {
           <div className="login_input_container">
             <div className="loginIdIcon"><HiUser /></div>
             <div className="loginPwdIcon"><IoKey /></div>
-            <input className="login_input" type="text" name="username" placeholder="          아이디" />
-            <input className="login_input" type="password" name="password" placeholder="          비밀번호" />
+            <input className="login_input" type="text" name="username" placeholder="아이디" />
+            <input className="login_input" type="password" name="password" placeholder="비밀번호" />
           </div>
           <div className="login_btn_container">
             <input className="login_btn" type="submit" id="btn-login" value="냠! 먹을 준비 완료!" />

@@ -40,7 +40,8 @@ function MainPage() {
             <img className="bannerMarker" src="./img/marker.png" width="35px" alt="마커" /><br />
             <div className="bannerBottom">나만 알고싶었던 맛집<br />
               친한 사람들과만 몰래 나누고 싶었던 맛집<br />
-              우리의 bemeal 지도로 완성해보세요.</div>
+              우리의 bemeal 지도로 완성해보세요.
+            </div>
           </header>
         </section >
         <div className="main-car1" >

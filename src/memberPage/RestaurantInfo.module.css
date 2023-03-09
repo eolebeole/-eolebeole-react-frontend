@@ -1,110 +1,94 @@
 .restaurantInfo {
-    display: flex;
-    flex-direction: column !important;
-    width: 500px;
-    height: 100vh;
+  display: flex;
+  flex-direction: column !important;
+  width: 500px;
+  height: 100vh;
 }
-
-
-
 
 /* styles.restaurantInfo_top */
 .icon {
-    position: absolute;
-    top: 10px;
-    left: 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
 
-    font-size: 25px;
-    color: rgb(98, 119, 44);
+  font-size: 25px;
+  color: rgb(98, 119, 44);
 
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 .restaurantInfo_title {
-    position: absolute;
-    top: 11px;
-    left: 38px;
+  position: absolute;
+  top: 11px;
+  left: 38px;
 
-    font-size: 20px;
-    font-weight: bolder;
-    color: rgb(98, 119, 44);
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(98, 119, 44);
 }
-
-
-
 
 /* styles.restaurantInfo_body */
 .restaurantInfo_body {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .restaurantInfo_body_restaurant {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    margin-top: 100px;
+  margin-top: 100px;
 }
-
 
 .restaurantInfo_image {
-    width: 300px;
-    height: 200px;
+  width: 300px;
+  height: 200px;
 }
-
 
 .restaurantInfo_name {
-    margin-top: 15px;
-    padding-left: 30px;
-    width: 350px;
+  margin-top: 15px;
+  padding-left: 30px;
+  width: 350px;
 
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(98, 119, 44);
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(98, 119, 44);
 }
-
 
 .restaurantInfo_address {
-    margin-top: 10px;
-    padding-left: 30px;
-    width: 350px;
+  margin-top: 10px;
+  padding-left: 30px;
+  width: 350px;
 
-    font-size: 15px;
+  font-size: 15px;
 }
-
 
 .restaurantInfo_phone {
-    margin-top: 5px;
-    padding-left: 30px;
-    width: 350px;
+  margin-top: 5px;
+  padding-left: 30px;
+  width: 350px;
 
-    font-size: 13px;
+  font-size: 13px;
 }
-
 
 .restaurantInfo_body_score {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    margin-top: 20px;
+  margin-top: 20px;
 }
-
 
 .restaurantInfo_Score_text {
-    padding-left: 105px;
-    font-size: 18px;
+  padding-left: 105px;
+  font-size: 18px;
 }
-
 
 .restaurantInfo_Score_num {
-    padding-left: 105px;
-    font-size: 15px;
+  padding-left: 105px;
+  font-size: 15px;
 }
 
-
 .restaurantInfo_myScore {
-    margin-top: 11px;
+  margin-top: 11px;
 }

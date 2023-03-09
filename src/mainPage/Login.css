@@ -6,7 +6,6 @@
 
 .loginLogo {
   width: 200px;
-  /* height: 50px; */
 }
 
 .loginClose {
@@ -21,7 +20,6 @@
 
 #loginModal {
   background-color: rgba(245, 245, 245, 0.6);
-  /* opacity: 0.3; */
 }
 
 .modal-content {
@@ -55,6 +53,8 @@
 
   border: 1px solid gray;
   border-radius: 5px;
+
+  text-indent: 3em;
 }
 
 .login_btn_container {

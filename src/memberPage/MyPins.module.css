@@ -6,7 +6,16 @@
 
 .nowPosition {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
+
+  background-color: rgb(98, 119, 44);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+
+  padding: 8px;
 
   top: 5px;
   left: 50%;

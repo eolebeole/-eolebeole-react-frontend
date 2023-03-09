@@ -1,31 +1,34 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BiPlus } from 'react-icons/bi';
+import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { VscSearch } from 'react-icons/vsc';
-import FriendPlus_Pagination from "./FriendPlus_Pagination";
+import { VscSearch } from "react-icons/vsc";
+import Pagination from "./Pagination";
 
 import "./FriendPlus.css";
 import "./PlusPin.css";
 
-function FriendPlus() {
+const fetchData = async () => {
+  let response = await axios.get('http://localhost:4000/users');
+  return response.data;
+}
 
+function FriendPlus() {
   const [modalOpen, setModalOpen] = useState(false);
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
 
   // 페이징 처리
-  const [limit, setLimit] = useState(5); // 한 페이지에 보여줄 데이터의 개수
+  const [limit, setLimit] = useState(3); // 한 페이지에 보여줄 데이터의 개수
   const [page, setPage] = useState(1); // 페이지 초기 값은 1페이지
   const offset = (page - 1) * limit;
 
   const openModal = () => {
     setModalOpen(true);
-  }
+  };
   const closeModal = () => {
     setModalOpen(false);
-  }
+  };
 
   const handleChange = (e) => {
     setPage(1);
@@ -40,20 +43,17 @@ function FriendPlus() {
   }, []);
 
   const filtered = users.filter((user) => user.nick.includes(search));
-  const list = filtered.slice(offset, offset + limit)
-    .map((item) => (
-      <>
-        <div id="FriendPlus_content" key={item.id}>
-          <div id="FriendPlus_person">
-            <IoPersonCircleSharp />
-          </div>
-          <div id="FriendPlus_name">
-            {item.nick}#{item.code}
-          </div>
-        </div>
-        <hr />
-      </>
-    ));
+  const list = filtered.slice(offset, offset + limit).map((item) => <>
+    <div id="FriendPlus_content" key={item.id}>
+      <div id="FriendPlus_person">
+        <IoPersonCircleSharp />
+      </div>
+      <div id="FriendPlus_name">
+        {item.nick}#{item.code}
+      </div>
+    </div>
+    <hr />
+  </>);
 
   return (
     <div>
@@ -69,30 +69,31 @@ function FriendPlus() {
               </button>
               <h2>친구 등록</h2>
             </header>
-            <input id="MatMate_friend" type="text" placeholder="닉네임을 입력해주세요." />
-            <div id="FriendPlus_search">
-              <VscSearch />
+            <div className="FriendPlus_content">
+              <div id="FriendPlus_search_icon">
+                <VscSearch />
+              </div>
+              <input
+                id="FriendPlus_search_input"
+                type="text"
+                placeholder="닉네임을 입력해주세요."
+                onChange={handleChange}
+              />
             </div>
-            <input
-              id="MatMate_friend"
-              type="text"
-              placeholder="닉네임을 입력해주세요."
-              onChange={handleChange}
-            />
             <div>{list}</div>
             <div>
-              <FriendPlus_Pagination
+              <Pagination
                 total={filtered.length}
                 limit={limit}
                 page={page}
                 setPage={setPage}
               />
             </div>
-            <input id="MatMate_friendBtn" type="button" value="친구 등록" />
-          </section >
+            <input className="FriendPlus_button" id="MatMate_friendBtn" type="button" value="친구 등록" />
+          </section>
         ) : null}
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
 

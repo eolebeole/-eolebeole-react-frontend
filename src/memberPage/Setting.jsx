@@ -15,23 +15,23 @@ function Setting(props) {
     setModalOpen(false);
   };
 
-    return (
-       <div id="Setting">
-        <div id="Setting_top">
-          <div
-            className="doubleLeft icon"
-            onClick={() => props.setToggleTab(1)}
-          >
-            <FiChevronsLeft />
-          </div>
-              <div id="Setting_title">설정</div>
-            </div>
-            <div id="space"></div>
-            <SettingProfile/>
-            <SettingInfo/>
-            <input type="button" id="Setting_logout" value="로그아웃"></input>
+  return (
+    <div id="Setting">
+      <div id="Setting_top">
+        <div
+          className="doubleLeft icon"
+          onClick={() => props.setToggleTab(1)}
+        >
+          <FiChevronsLeft />
         </div>
-    );
+        <div id="Setting_title">설정</div>
+      </div>
+      <div id="space"></div>
+      <SettingProfile />
+      <SettingInfo />
+      <input type="button" id="Setting_logout" value="로그아웃"></input>
+    </div>
+  );
 };
 
 export default Setting;

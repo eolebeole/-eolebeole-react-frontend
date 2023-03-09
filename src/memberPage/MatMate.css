@@ -51,14 +51,15 @@
 #MatMate_search {
   position: absolute;
   top: 54px;
-  right: 445px;
-  width: 35px;
+  right: 444.1px;
+  width: 36px;
   height: 35px;
   text-align: center;
   font-size: 23px;
-  padding-top: 6px;
-  background-color: rgb(199, 211, 127);
-  border-radius: 3px;
+  padding-top: 8px;
+  color: rgb(166, 166, 166);
+  background-color: rgb(237, 237, 237);
+  border-radius: 5px 0 0 5px;
 }
 
 #MatMate_body {

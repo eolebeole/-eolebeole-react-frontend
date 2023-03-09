@@ -28,17 +28,17 @@
   top: 11px;
   left: 38px;
 
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bolder;
   color: rgb(98, 119, 44);
 }
 
 .MyRestaurant_search {
   position: absolute;
-  top: 9px;
+  top: 10px;
   right: 15px;
 
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
   color: rgb(98, 119, 44);
 
