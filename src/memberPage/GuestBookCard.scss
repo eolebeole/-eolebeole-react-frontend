@@ -1,0 +1,19 @@
+.GuestBook_item {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  background-color: rgb(166, 194, 96);
+  width: 150px;
+
+  button {
+    margin: 3px;
+    opacity: 80%;
+    float: right;
+  }
+
+  button :hover {
+    opacity: 100%;
+  }
+}
