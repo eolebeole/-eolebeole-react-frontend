@@ -236,7 +236,6 @@ function PlusPin() {
           </section>
         ) : null}
       </div>
-      {/* <input type="button" value="ㅎㅎ" onChange={PlusPin2.jsx}/> */}
     </div >
 
   );
