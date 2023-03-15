@@ -23,6 +23,7 @@ function FriendPlus() {
   const [page, setPage] = useState(1); // 페이지 초기 값은 1페이지
   const offset = (page - 1) * limit;
 
+
   const openModal = () => {
     setModalOpen(true);
   };
@@ -44,14 +45,7 @@ function FriendPlus() {
 
   const filtered = users.filter((user) => user.nick.includes(search));
   const list = filtered.slice(offset, offset + limit).map((item) => <>
-    <div id="FriendPlus_content" key={item.id}>
-      <div id="FriendPlus_person">
-        <IoPersonCircleSharp />
-      </div>
-      <div id="FriendPlus_name">
-        {item.nick}#{item.code}
-      </div>
-    </div>
+    <Friend item={item} key={item.user_id} />
     <hr />
   </>);
 
@@ -89,12 +83,25 @@ function FriendPlus() {
                 setPage={setPage}
               />
             </div>
-            <input className="FriendPlus_button" id="MatMate_friendBtn" type="button" value="친구 등록" />
           </section>
         ) : null}
       </div>
     </div>
   );
+}
+
+function Friend({item}) {
+  const [visible, setVisible] = useState(false);
+
+  return <div id="FriendPlus_content">
+      <div id="FriendPlus_person">
+        <IoPersonCircleSharp />
+      </div>
+      <div id="FriendPlus_name">
+        {item.nick}#{item.code}
+      </div>
+      <button id="MatMate_friendBtn" className="FriendPlus_button" onClick={() => setVisible(!visible)} style={{backgroundColor: visible? 'rgb(98,119,44)' : 'rgb(215,154,71)'}}>{visible? "친구신청" : "신청취소"}</button>
+    </div>
 }
 
 export default FriendPlus;

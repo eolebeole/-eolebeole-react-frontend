@@ -13,8 +13,9 @@ import styles from './MyPins.module.css';
 
 const { kakao } = window;
 
-const fetchData = async ([x, y]) => {
-  let response = await axios.get('http://localhost:4000/places', { params: { x, y } });
+const fetchData = async () => {
+  let token = sessionStorage.getItem('token');
+  let response = await axios.get('http://localhost:4000/restaurants', { headers: {Authorization: `Bearer ${token}`}, params: {} });
   return response.data;
 }
 
@@ -23,7 +24,8 @@ function MyPins() {
   // 기본 위치 저장 STATE
   const [position, setPosition] = useState([127.48742638905269, 36.64394808472207]);
   // 음식점 목록 저장 STATE
-  const { isLoading, error, data: restaurants } = useQuery(`restaurants ${position}`, () => fetchData(position));
+  const { isLoading, error, data } = useQuery('restaurants', () => fetchData());
+  const places = data?.map((item) => item.place);
   // 기본 위치 표시
   function successGetPosition(position) {
     var lat = position.coords.latitude;
@@ -46,11 +48,12 @@ function MyPins() {
 
   useEffect(() => {
     if (isLoading) return;
-    restaurants.forEach((item) => {
+    // item 의 개수만큼 화면에 표시여부를 반복
+    places.forEach((item) => {
       item.place = new Place(item);
     });
 
-    setMarkers(restaurants.map((item) => <MarkerAndInfo
+    setMarkers(places.map((item) => <MarkerAndInfo
       /* TODO: DB에 이미지가 없을 경우 사용할 기본이미지 제작 및 아래에 기입*/
       key={item.id}
       myPinImage={false ? "./img/profile.png" : "./img/menuBtn.png"}
@@ -60,9 +63,7 @@ function MyPins() {
       lat={item.y}
       place={item.place}
     />));
-    // lat={item.latlng.getLat()} /* 가게 추가 시 경도, 위도 가져오는 코드로 활용? */
-    // lng={item.latlng.getLng()} /* 가게 추가 시 경도, 위도 가져오는 코드로 활용? */
-  }, [restaurants]);
+  }, [data]);
 
   if (isLoading) {
     return <Loading />;
@@ -83,7 +84,7 @@ function MyPins() {
         {markers}
         {infoWindows}
       </Map>
-      <Sidebar setPosition={setPosition} nowPosition={getPosition} markerPositions={restaurants} />
+      <Sidebar setPosition={setPosition} nowPosition={getPosition} markerPositions={places} />
       <button className={styles.nowPosition} onClick={getPosition}>현위치</button>
       <PlusPin />
     </div >

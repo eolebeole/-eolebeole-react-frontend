@@ -41,20 +41,21 @@ function Login() {
         email: email,
         pwd: pwd
       };
-      api.post("/users", body)
+      api.post("/users/login", body)
         .then((res) => {
           console.log(res.data);
-          if (res.data.code == 200) {
+          if (res.status == 200) {
             console.log("로그인");
+            sessionStorage.setItem('token', res.data.value);
             navigate("/memberPage");
           }
-          if (res.data.code == 400) {
+          if (res.status == 400) {
             setMsg("Email, Password가 비어있습니다.");
           }
-          if (res.data.code == 401) {
+          if (res.status == 401) {
             setMsg("존재하지 않는 Email입니다.");
           }
-          if (res.data.code == 402) {
+          if (res.status == 402) {
             setMsg("Password가 틀립니다.");
           }
         })

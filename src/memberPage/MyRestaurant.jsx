@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import { useQuery } from 'react-query';
 
 import Pagination from "./Pagination";
 
-import { FiChevronsLeft } from 'react-icons/fi'
-import { FaMapMarkerAlt } from 'react-icons/fa'
-import { BsSearch } from 'react-icons/bs'
+import { BsSearch } from 'react-icons/bs';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FiChevronsLeft } from 'react-icons/fi';
 
 import styles from "./MyRestaurant.module.css";
 
-
+const fetchData = async ([x, y], query) => {
+  let token = sessionStorage.getItem('token');
+  let response = await axios.get('http://localhost:4000/restaurants', { headers: { Authorization: `Bearer ${token}` }, params: {} });
+  return response.data;
+}
 
 function MyRestaurant(props) {
 
@@ -22,13 +26,10 @@ function MyRestaurant(props) {
   const offset = (page - 1) * limit;
 
   const [query, setQuery] = useState("");
-  const { isLoading, error, data: restaurants } = useQuery(['restaurants', position, query], () => fetchData(query, position));
+  const { isLoading, error, data } = useQuery(['myrestaurants', position, query], () => fetchData(query, position));
   const [filtered, setFiltered] = useState([]);
 
-  const fetchData = async (query, [x, y]) => {
-    let response = await axios.get('http://localhost:4000/places', { params: { x, y, query } });
-    return response.data;
-  }
+  const places = data?.map((item) => item.place);
 
   const list = filtered.slice(offset, offset + limit)
     .map((item) => (
@@ -41,21 +42,21 @@ function MyRestaurant(props) {
         }}>
           <div className={styles.MyRestaurant_image}><FaMapMarkerAlt /></div>
           <div className={styles.MyRestaurant_info}>
-          <div className={styles.MyRestaurant_name}>{item.place_name}</div>
-          <div className={styles.MyRestaurant_address}>{item.address_name}</div>
-          <div className={styles.MyRestaurant_roadNumberAddress}>(지번) {item.road_address_name}</div>
+            <div className={styles.MyRestaurant_name}>{item.place_name}</div>
+            <div className={styles.MyRestaurant_address}>{item.address_name}</div>
+            <div className={styles.MyRestaurant_roadNumberAddress}>(지번) {item.road_address_name}</div>
+          </div>
         </div>
-      </div>
-      <hr />
+        <hr />
       </>
     ));
 
 
   useEffect(() => {
     if (isLoading) return;
-    const filtered = restaurants.filter((place) => place.place_name.includes(query));
+    const filtered = places.filter((place) => place.place_name.includes(query));
     setFiltered(filtered);
-  }, [restaurants]);
+  }, [data]);
 
 
 
@@ -73,11 +74,11 @@ function MyRestaurant(props) {
         {list}
       </div>
       <Pagination
-      total={filtered.length}
-      limit={limit}
-      page={page}
-      setPage={setPage}
-    />
+        total={filtered.length}
+        limit={limit}
+        page={page}
+        setPage={setPage}
+      />
     </div >
   );
 }
