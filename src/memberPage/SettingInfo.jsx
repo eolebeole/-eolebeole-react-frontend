@@ -1,9 +1,19 @@
-import { React, useState } from 'react';
+import axios from 'axios';
+import { React, useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import './SettingInfo.css';
+
+const fetchData = async (id) => {
+  let response = await axios.get(`http://localhost:4000/users/${id}`);
+  return response.data;
+}
 
 function SettingInfo() {
   const [modalOpen, setModalOpen] = useState(false);
   const [gender, setGender] = useState('');
+
+  const { isLoading, error, data } = useQuery('profile', () => fetchData(1));
+  const date = new Date(data?.birth);
 
   const openModal = () => {
     setModalOpen(true);
@@ -50,7 +60,7 @@ function SettingInfo() {
               <div id="SettingInfo_items">
                 <label>이메일</label>
                 <label class="must">*</label>
-                <input name="SettingInfo_email" placeholder="hea@mail.com"></input>
+                <input name="SettingInfo_email" placeholder={data?.email}></input>
               </div>
               <div id="SettingInfo_items">
                 <label>현재 비밀번호</label>
@@ -69,14 +79,14 @@ function SettingInfo() {
               </div>
               <div id="SettingInfo_items">
                 <label>이름</label>
-                <input name="SettingInfo_name" placeholder="박세영"></input>
+                <input name="SettingInfo_name" placeholder={data?.name}></input>
               </div>
               <div id="SettingInfo_items">
                 <label>생년월일</label>
                 <div id="info_birth">
-                  <BirthYearSelect />
-                  <BirthMonthSelect />
-                  <BirthDaySelect />
+                  <BirthYearSelect year={date.getFullYear()} />
+                  <BirthMonthSelect month={date.getMonth() + 1} />
+                  <BirthDaySelect day={date.getDate()} />
                 </div>
               </div>
 
@@ -117,11 +127,11 @@ function SettingInfo() {
   );
 }
 
-function BirthYearSelect() {
+function BirthYearSelect(props) {
   const [years, setYears] = useState([]);
 
-  function handleFocus(e) {
-    if (!years.length) {
+  useEffect(() => {
+    if (!years.length) {//props.year
       const years = Array.from({ length: 84 }, (_, i) => 1940 + i);
       const yearOptions = years.map((year) => (
         <option key={year} value={year}>
@@ -130,11 +140,11 @@ function BirthYearSelect() {
       ));
       setYears(yearOptions);
     }
-  }
+  }, [])
 
   return (
-    <select name="birth_year" onFocus={handleFocus}>
-      <option disabled selected>
+    <select name="birth_year" value={props.year}>
+      <option disabled >
         출생년도
       </option>
       {years}
@@ -142,10 +152,10 @@ function BirthYearSelect() {
   );
 }
 
-function BirthMonthSelect() {
+function BirthMonthSelect(props) {
   const [months, setMonths] = useState([]);
 
-  function handleFocus(e) {
+  useEffect(() => {
     if (!months.length) {
       const months = Array.from({ length: 12 }, (_, i) => 1 + i);
       const monthOptions = months.map((month) => (
@@ -155,10 +165,10 @@ function BirthMonthSelect() {
       ));
       setMonths(monthOptions);
     }
-  }
+  }, [])
 
   return (
-    <select name="birth_month" onFocus={handleFocus}>
+    <select name="birth_month" value={props.month}>
       <option disabled selected>
         월
       </option>
@@ -167,10 +177,10 @@ function BirthMonthSelect() {
   );
 }
 
-function BirthDaySelect() {
+function BirthDaySelect(props) {
   const [days, setDays] = useState([]);
 
-  function handleFocus(e) {
+  useEffect(() => {
     if (!days.length) {
       const days = Array.from({ length: 31 }, (_, i) => 1 + i);
       const dayOptions = days.map((day) => (
@@ -180,10 +190,10 @@ function BirthDaySelect() {
       ));
       setDays(dayOptions);
     }
-  }
+  }, [])
 
   return (
-    <select name="birth_day" onFocus={handleFocus}>
+    <select name="birth_day" value={props.day}>
       <option disabled selected>
         일
       </option>

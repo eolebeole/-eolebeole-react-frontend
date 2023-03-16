@@ -89,14 +89,13 @@
 
 
 .modal>section>header {
-  position:relative;
+  display: block;
 
   width: 450px;
   height: 70px;
   background-color: #d6ebb1;
   padding: 16px;
 
-  border-radius: 0.8rem;
 }
 
 
@@ -128,8 +127,12 @@
 }
 
 #SettingInfo_body {
-  padding: 0.5rem 2rem;
-  overflow-y: auto;
+  margin-top: 0.5rem;
+  overflow-y: scroll;
+}
+
+#SettingInfo_body::-webkit-scrollbar {
+  display: none;
 }
 
 #notice {
@@ -137,17 +140,16 @@
   font-size: 13px;
   font-weight: bold;
   color: rgb(215, 154, 71);
-  margin: 0px 20px 0px 0px;
 }
 
 #SettingInfo_items {
   text-align: left;
-  font-weight: bold;
-  margin-left: 28px;
+  margin-left: 8px;
 }
 
 #SettingInfo_items > label {
   display:flexbox;
+  font-weight: bold;
 }
 
 #SettingInfo_items > label.must {
@@ -156,19 +158,19 @@
 }
 
 #SettingInfo_items > #info_birth > select {
-  width: 107px;
+  width: 105px;
   height:35px;
   margin: 5px 5px 10px 0px;
   font-size: 15px;
 }
 
 #SettingInfo_items > #info_gender > #male, #gender_not{
-  margin-left: 20px;
+  margin-left: 90px;
 }
 
 #SettingInfo_body input:not([type=radio]) {
   display: block;
-  width: 20rem;
+  width: 32.5rem;
   height: 35px;
   margin:5px 0px 10px 0px;
   padding-left: 5px;
