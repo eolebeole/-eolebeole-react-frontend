@@ -1,18 +1,16 @@
-import axios from 'axios';
 import React, { useEffect, useState } from "react";
-import { useQuery } from 'react-query';
-
-import Pagination from "./Pagination";
-
 import { BsSearch } from 'react-icons/bs';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { FiChevronsLeft } from 'react-icons/fi';
+import { useQuery } from 'react-query';
+import Pagination from "./Pagination";
 
+import api from '../utils/api';
 import styles from "./MyRestaurant.module.css";
 
 const fetchData = async ([x, y], query) => {
   let token = sessionStorage.getItem('token');
-  let response = await axios.get('http://localhost:4000/restaurants', { headers: { Authorization: `Bearer ${token}` }, params: {} });
+  let response = await api.get('/restaurants', { headers: { Authorization: `Bearer ${token}` }, params: {} });
   return response.data;
 }
 

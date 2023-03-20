@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import { Map } from 'react-kakao-maps-sdk';
 import { Place } from './Place'; // mobx 모듈
-
+import api from '../utils/api';
 import MarkerAndInfo from './MarkerAndInfo';
 import PlusPin from './PlusPin';
 import Sidebar from './Sidebar';
@@ -11,11 +10,10 @@ import { Error, Loading } from '../components'
 import { useQuery } from 'react-query';
 import styles from './MyPins.module.css';
 
-const { kakao } = window;
 
 const fetchData = async () => {
   let token = sessionStorage.getItem('token');
-  let response = await axios.get('http://localhost:4000/restaurants', { headers: {Authorization: `Bearer ${token}`}, params: {} });
+  let response = await api.get('/restaurants', { headers: {Authorization: `Bearer ${token}`}, params: {} });
   return response.data;
 }
 

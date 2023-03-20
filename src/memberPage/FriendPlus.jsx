@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { VscSearch } from "react-icons/vsc";
+import api from '../utils/api';
 import Pagination from "./Pagination";
 
 import "./FriendPlus.css";
 import "./PlusPin.css";
 
 const fetchData = async () => {
-  let response = await axios.get('http://localhost:4000/users');
+  let response = await axios.get('/users');
   return response.data;
 }
 
@@ -37,9 +38,8 @@ function FriendPlus() {
   };
 
   useEffect(() => {
-    axios({
-      method: "GET",
-      url: "http://localhost:4000/users",
+    api.request({
+      url: "/users",
     }).then((response) => setUsers(response.data));
   }, []);
 

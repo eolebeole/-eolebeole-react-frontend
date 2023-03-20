@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import api from '../utils/api';
 import './SettingInfo.css';
 
 const fetchData = async (id) => {
-  let response = await axios.get(`http://localhost:4000/users/${id}`);
+  let response = await api.get(`/users/${id}`);
   return response.data;
 }
 

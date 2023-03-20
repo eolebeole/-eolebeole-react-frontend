@@ -1,9 +1,9 @@
 // 리액트 사용을 위한 기본 설정들 불러오기 axios, react, icon, component
-import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { FiChevronsLeft } from "react-icons/fi";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { VscSearch } from "react-icons/vsc";
+import api from '../utils/api';
 import FriendPlus from './FriendPlus';
 import Pagination from "./Pagination";
 
@@ -20,9 +20,9 @@ function MatMate(props) {
 
   // useEffect를 통해 Spring Boot에서 전송한 json 데이터를 axios로 받아오고, 받아온 데이터를 setFriends를 통해 friends에 저장
   useEffect(() => {
-    axios({
+    api.request({
       method: "GET",
-      url: "http://localhost:4000/users",
+      url: "/users",
     }).then(response => setFriends(response.data));
   }, []);
 

@@ -1,6 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { BsXLg } from 'react-icons/bs'
+import api from '../utils/api';
+
 import './SignUp.css';
 
 
@@ -114,7 +115,7 @@ function SignUp() {
     //   console.log(value);
     // }
 
-    axios.post("http://localhost:4000/users", formData2)
+    api.post("/users", formData2)
       .then(() => alert("회원가입이 완료되었습니다!"))
       .catch((err) => console.log(err));
   }

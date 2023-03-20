@@ -1,16 +1,16 @@
-import axios from 'axios';
 import { React, useState, useEffect, useRef } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { VscSearch } from "react-icons/vsc";
 import { useQuery } from 'react-query';
 
 import { Error, Loading } from '../components'
+import api from '../utils/api';
 import Pagination from "./Pagination";
 
 import './PlusPin.css';
 
 const fetchData = async (query, [x, y]) => {
-  let response = await axios.get('http://localhost:4000/places', { params: { x, y, query } });
+  let response = await api.get('/places', { params: { x, y, query } });
   return response.data;
 }
 
@@ -163,7 +163,7 @@ function PlusPin() {
       e.preventDefault();
       const formData = new FormData(document.querySelector('#PlusPin_body'));
       //formData.append('file', profileImgFileInput.current.files[0]);
-      axios.post('http://localhost:4000/restaurants', formData, {
+      api.post('/restaurants', formData, {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data'
