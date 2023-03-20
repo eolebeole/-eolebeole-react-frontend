@@ -165,6 +165,7 @@ function PlusPin() {
       //formData.append('file', profileImgFileInput.current.files[0]);
       axios.post('http://localhost:4000/restaurants', formData, {
         headers: {
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data'
         }
       })
@@ -236,7 +237,6 @@ function PlusPin() {
           </section>
         ) : null}
       </div>
-      {/* <input type="button" value="ㅎㅎ" onChange={PlusPin2.jsx}/> */}
     </div >
 
   );

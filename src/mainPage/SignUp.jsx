@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsXLg } from 'react-icons/bs'
 import './SignUp.css';
 
@@ -11,10 +11,10 @@ function SignUp() {
     return <input name="gender" type="radio" {...props} />;
   }
 
-  function BirthYearSelect() {
+  function BirthYearSelect({ year, setYear }) {
     const [years, setYears] = useState([]);
 
-    function handleFocus(e) {
+    useEffect(() => {
       if (!years.length) {
         const years = Array.from({ length: 84 }, (_, i) => 1940 + i);
         const yearOptions = years.map((year) => (
@@ -24,11 +24,12 @@ function SignUp() {
         ));
         setYears(yearOptions);
       }
-    }
+    }, [])
 
     return (
-      <select name="birth_year" onFocus={handleFocus}>
-        <option disabled selected>
+      <select id="birth_year" onChange={(e) => { setYear(e.target.value) }}
+        value={year}>
+        <option value="" disabled>
           출생년도
         </option>
         {years}
@@ -36,10 +37,10 @@ function SignUp() {
     );
   }
 
-  function BirthMonthSelect() {
+  function BirthMonthSelect({ month, setMonth }) {
     const [months, setMonths] = useState([]);
 
-    function handleFocus(e) {
+    useEffect(() => {
       if (!months.length) {
         const months = Array.from({ length: 12 }, (_, i) => 1 + i);
         const monthOptions = months.map((month) => (
@@ -49,11 +50,12 @@ function SignUp() {
         ));
         setMonths(monthOptions);
       }
-    }
+    }, [])
 
     return (
-      <select name="birth_month" onFocus={handleFocus}>
-        <option disabled selected>
+      <select id="birth_month" onChange={(e) => { setMonth(e.target.value) }}
+        value={month}>
+        <option value="" disabled>
           월
         </option>
         {months}
@@ -61,10 +63,10 @@ function SignUp() {
     );
   }
 
-  function BirthDaySelect() {
+  function BirthDaySelect({ day, setDay }) {
     const [days, setDays] = useState([]);
 
-    function handleFocus(e) {
+    useEffect(() => {
       if (!days.length) {
         const days = Array.from({ length: 31 }, (_, i) => 1 + i);
         const dayOptions = days.map((day) => (
@@ -74,11 +76,12 @@ function SignUp() {
         ));
         setDays(dayOptions);
       }
-    }
+    }, [])
 
     return (
-      <select name="birth_day" onFocus={handleFocus}>
-        <option disabled selected>
+      <select id="birth_day" onChange={(e) => { setDay(e.target.value) }}
+        value={day}>
+        <option value="" disabled>
           일
         </option>
         {days}
@@ -89,6 +92,10 @@ function SignUp() {
 
   const [gender, setGender] = useState('');
 
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [day, setDay] = useState('');
+
   const handleChange = (e) => {
     setGender({
       selectValue: e.target.value,
@@ -97,25 +104,19 @@ function SignUp() {
 
   const saveHandler = (e) => {
     e.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(name);
-    console.log(gender.selectValue);
-    console.log(birthYear.value);
-    console.log(birthMonth.value);
-    console.log(birthDay.value);
-    const body = {
-      email: email,
-      password: password,
-      name: name,
-      gender: gender.selectValue,
-      birth_year: birthYear.value,
-      birth_month: birthMonth.value,
-      birth_day: birthDay.value,
-    };
-    console.log(body);
-    axios.post("http://localhost:8080/register", body)
-      .then((res) => console.log(res));
+    // useRef()를 이용한 코드로 수정예정
+    const formData2 = new FormData(document.querySelector('#SignUp_form'));
+    // console.log(formData2);
+    // for (let key of formData2.keys()) {
+    //   console.log(key);
+    // }
+    // for (let value of formData2.values()) {
+    //   console.log(value);
+    // }
+
+    axios.post("http://localhost:4000/users", formData2)
+      .then(() => alert("회원가입이 완료되었습니다!"))
+      .catch((err) => console.log(err));
   }
 
   // 화면 구성 return
@@ -127,59 +128,73 @@ function SignUp() {
           <BsXLg />
         </div>
       </header>
+      <form id="SignUp_form" onSubmit={saveHandler}>
+        <div id="SignUp_body">
+          <div id="notice">*표시는 필수 입력 항목입니다.</div>
+          <div id="SignUp_items">
+            <label className="SignUp_item">이메일</label>
+            <label className="must">*</label>
+            <input className="SignUp_input"
+              name="email"
+              placeholder="내용을 입력해주세요"
+              style={{ width: "400px", height: "50px" }}
+            />
+          </div>
+          <div id="SignUp_items">
+            <label className="SignUp_item">비밀번호</label>
+            <label className="must">*</label>
+            <input className="SignUp_input" name="pwd" type="password" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>
+          </div>
+          <div id="SignUp_items">
+            <label className="SignUp_item">비밀번호 확인</label>
+            <label className="must">*</label>
+            <input className="SignUp_input" name="pwdch" type="password" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>          </div>
+          <div id="SignUp_items">
+            <label className="SignUp_item">닉네임</label>
+            <label className="must">*</label>
+            <input className="SignUp_input" name="nick" placeholder="닉네임" style={{ width: "150px", height: "50px" }}></input>
+            #
+            <label className="SignUp_item">코드</label>
+            <label className="must">*</label>
+            <input className="SignUp_input" name="code" placeholder="코드" style={{ width: "150px", height: "50px" }}></input>
+          </div>
+          <div id="SignUp_items">
+            <label className="SignUp_item">생년월일</label>
+            <input type="hidden" name="birth" value={`${year}-${month?.padStart(2, "0")}-${day?.padStart(2, "0")}`} />
+            <div id="info_birth">
+              <label className="SignUp_item" htmlFor="birth_year">출생년도</label>
+              <label className="must">*</label>
+              <BirthYearSelect year={year} setYear={setYear} />
 
-      <div id="SignUp_body">
-        <div id="notice">*표시는 필수 입력 항목입니다.</div>
-        <form onSubmit={saveHandler}>
-          <form.group>
-            <label htmlFor="email">이메일</label>
-            <input type="email" name="email" id="email" required />
-            <div id="email_notice">*이메일을 입력해주세요.</div>
-          </form.group>
-        </form>
+              <label className="SignUp_item" htmlFor="birth_month">출생월</label>
+              <label className="must">*</label>
+              <BirthMonthSelect month={month} setMonth={setMonth} />
 
-        {/* <div id="SignUp_items">
-          <label className="SignUp_item">이메일</label>
-          <label className="must">*</label>
-          <input className="SignUp_input" name="SignUp_email" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>
-        </div> */}
-        <div id="SignUp_items">
-          <label className="SignUp_item">비밀번호</label>
-          <label className="must">*</label>
-          <input className="SignUp_input" name="SignUp_password" type="password" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>
-        </div>
-        <div id="SignUp_items">
-          <label className="SignUp_item">비밀번호 확인</label>
-          <label className="must">*</label>
-          <input className="SignUp_input" name="SignUp_passwordch" type="password" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>
-        </div>
-        <br />
-        <div id="SignUp_items">
-          <label className="SignUp_item">이름</label>
-          <input className="SignUp_input" name="SignUp_name" placeholder="내용을 입력해주세요" style={{ width: "400px", height: "50px" }}></input>
-        </div>
-        <br />
-        <div id="SignUp_items"> {/* 생년월일 입력 후 성별을 선택하면 생년월일 입력이 사라진다. -> 성별과 생년월일의 위치 변경 */}
+              <label className="SignUp_item" htmlFor="birth_day">출생일</label>
+              <label className="must">*</label>
+              <BirthDaySelect day={day} setDay={setDay} />
+            </div>
+          </div>
           <label className="SignUp_item">성별</label>
           <div id="info_gender">
             <Radio
               id="female"
-              value="female"
-              checked={gender.selectValue === 'female'}
+              value="0"
+              checked={gender.selectValue === '0'}
               onChange={handleChange}
             />
             여성
             <Radio
               id="male"
-              value="male"
-              checked={gender.selectValue === 'male'}
+              value="1"
+              checked={gender.selectValue === '1'}
               onChange={handleChange}
             />
             남성
             <Radio
               id="gender_not"
-              value="not"
-              checked={gender.selectValue === 'not'}
+              value="2"
+              checked={gender.selectValue === '2'}
               onChange={handleChange}
             />
             무응답
@@ -187,18 +202,10 @@ function SignUp() {
         </div>
         <br />
         <br />
-        <div id="SignUp_items">
-          <label className="SignUp_item">생년월일</label>
-          <div id="info_birth">
-            <BirthYearSelect />
-            <BirthMonthSelect />
-            <BirthDaySelect />
-          </div>
+        <div id="SignUp_footer">
+          <button type="submit">회 원 가 입</button>
         </div>
-      </div>
-      <div id="SignUp_footer">
-        <button>회 원 가 입</button>
-      </div>
+      </form>
     </section>
   </>
 }

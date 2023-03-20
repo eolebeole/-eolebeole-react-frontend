@@ -121,7 +121,7 @@
   text-align: center;
   line-height: 47px;
   background-color: rgb(199, 211, 127);
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
 }
 .loginPwdIcon {
   position: absolute;
@@ -133,5 +133,5 @@
   text-align: center;
   line-height: 47px;
   background-color: rgb(199, 211, 127);
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
 }
