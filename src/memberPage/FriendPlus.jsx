@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { IoPersonCircleSharp } from "react-icons/io5";
@@ -10,7 +9,7 @@ import "./FriendPlus.css";
 import "./PlusPin.css";
 
 const fetchData = async () => {
-  let response = await axios.get('/users');
+  let response = await api.get('/users');
   return response.data;
 }
 
@@ -100,7 +99,7 @@ function Friend({item}) {
       <div id="FriendPlus_name">
         {item.nick}#{item.code}
       </div>
-      <button id="MatMate_friendBtn" className="FriendPlus_button" onClick={() => setVisible(!visible)} style={{backgroundColor: visible? 'rgb(98,119,44)' : 'rgb(215,154,71)'}}>{visible? "친구신청" : "신청취소"}</button>
+      <button id="MatMate_friendBtn" className="FriendPlus_button" onClick={() => setVisible(!visible)} style={{backgroundColor: visible? 'rgb(215,154,71)' : 'rgb(98,119,44)'}}>{visible? "신청취소" : "친구신청"}</button>
     </div>
 }
 

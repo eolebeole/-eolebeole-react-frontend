@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useRef } from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { React, useCallback, useEffect, useRef, useState } from 'react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { VscSearch } from "react-icons/vsc";
 import { useQuery } from 'react-query';
 
@@ -14,8 +14,6 @@ const fetchData = async (query, [x, y]) => {
   return response.data;
 }
 
-
-
 function PlusPin() {
 
   const [toggleTab, setToggleTab] = useState(1); // 수정필요
@@ -27,7 +25,6 @@ function PlusPin() {
   const offset = (page - 1) * limit;
   const [filtered, setFiltered] = useState([]);
   const [selected, setSelected] = useState({});
-
 
   const { isLoading, error, data: restaurants } = useQuery(['restaurants', position, query], () => fetchData(query, position));
   const [modalOpen, setModalOpen] = useState(false);
@@ -107,124 +104,11 @@ function PlusPin() {
     />
   </>
 
-  function ScoreSelect() {
-    const [score, setScore] = useState([]);
-
-    function handleFocus(e) {
-      if (!score.length) {
-        const score = Array.from({ length: 11 }, (_, i) => 0 + 0.5 * i);
-        const scoreOptions = score.map((score) => (
-          <option key={score} value={score}>
-            {score}
-          </option>
-        ));
-        setScore(scoreOptions);
-      }
-    }
-
-    return (
-      <select name="eval" onFocus={handleFocus}>
-        <option disabled selected>
-          0.0
-        </option>
-        {score}
-      </select>
-    );
-  }
-
-  function PlusPinPageTwo() {
-
-    const [profileImage, setProfileImage] = useState(
-      './img/xInbox.png'
-    );
-    const profileImgFileInput = useRef(null);
-
-    const onChange = (e) => {
-      if (e.target.files[0]) {
-        //setFile(e.target.files[0])
-      } else {
-        //업로드 취소할 시
-        setProfileImage(
-          'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-        );
-        return;
-      }
-      //화면에 프로필 사진 표시
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setProfileImage(reader.result);
-        }
-      };
-      reader.readAsDataURL(e.target.files[0]);
-    };
-
-    const onSubmit = (e) => {
-      e.preventDefault();
-      const formData = new FormData(document.querySelector('#PlusPin_body'));
-      //formData.append('file', profileImgFileInput.current.files[0]);
-      api.post('/restaurants', formData, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-          'Content-Type': 'multipart/form-data'
-        }
-      })
-        .then((response) => {
-          console.log(response);
-          setProfileImage(response.data.url);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-
-    return (
-      <>
-        <header>
-          <button className="close" onClick={() => setToggleTab(1)}>
-            &times;
-          </button>
-          <h2>맛집 등록</h2>
-        </header>
-        <form id="PlusPin_body" onSubmit={onSubmit}>
-          <img
-            id="SettingProfile_photo"
-            src={profileImage}
-            onClick={() => {
-              profileImgFileInput.current.click();
-            }}
-          ></img>
-          <div>{selected.place_name}</div>
-          <div>{selected.address_name}</div>
-          <div>{selected.phone}</div>
-          <input
-            type="hidden"
-            name="placeId"
-            value={selected.id} />
-          <input
-            type="file"
-            style={{ display: 'none' }}
-            accept="image/jpg,impge/png,image/jpeg"
-            name="imgFile"
-            onChange={onChange}
-            ref={profileImgFileInput}
-          />
-          <ScoreSelect />
-          <button>등록</button> {/* 버튼이 한개면 자동으로 그 버튼에 onsubmit 기능이 생긴다. */}
-        </form>
-        {/* <button onClick={setToggleTab(1)}/> */}
-      </>
-    )
-  }
-
-  function Contents() {
-    if (toggleTab === 1) {
-      return plusPinPageOne
-    } else if (toggleTab === 2) {
-      return (
-        <PlusPinPageTwo />
-      )
-    }
+  let contents;
+  if (toggleTab === 1) {
+    contents = plusPinPageOne
+  } else if (toggleTab === 2) {
+    contents = <PlusPinPageTwo selected={selected} setToggleTab={setToggleTab} />
   }
 
   return (
@@ -233,13 +117,123 @@ function PlusPin() {
       <div className={modalOpen ? 'openModal modal' : 'modal'}>
         {modalOpen ? (
           <section>
-            <Contents />
+            {contents}
           </section>
         ) : null}
       </div>
     </div >
 
   );
+}
+
+function ScoreSelect() {
+  const [score, setScore] = useState([]);
+
+  function handleFocus(e) {
+    if (!score.length) {
+      const score = Array.from({ length: 11 }, (_, i) => 0 + 0.5 * i);
+      const scoreOptions = score.map((score) => (
+        <option key={score} value={score}>
+          {score}
+        </option>
+      ));
+      setScore(scoreOptions);
+    }
+  }
+
+  return (
+    <select name="eval" onFocus={handleFocus}>
+      <option disabled selected>
+        0.0
+      </option>
+      {score}
+    </select>
+  );
+}
+
+function PlusPinPageTwo({ selected, setToggleTab }) {
+
+  const [profileImage, setProfileImage] = useState(
+    './img/xInbox.png'
+  );
+  const profileImgFileInput = useRef(null);
+
+  const onChange = (e) => {
+    if (e.target.files[0]) {
+      //setFile(e.target.files[0])
+    } else {
+      //업로드 취소할 시
+      setProfileImage(
+        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+      );
+      return;
+    }
+    //화면에 프로필 사진 표시
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setProfileImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(document.querySelector('#PlusPin_body'));
+    //formData.append('file', profileImgFileInput.current.files[0]);
+    api.post('/restaurants', formData, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then((response) => {
+        console.log(response);
+        setProfileImage(response.data.url);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  return (
+    <>
+      <header>
+        <button className="close" onClick={() => setToggleTab(1)}>
+          &times;
+        </button>
+        <h2>맛집 등록</h2>
+      </header>
+      <form id="PlusPin_body" onSubmit={onSubmit}>
+        <img
+          id="SettingProfile_photo"
+          src={profileImage}
+          onClick={() => {
+            profileImgFileInput.current.click();
+          }}
+        ></img>
+        <div>{selected.place_name}</div>
+        <div>{selected.address_name}</div>
+        <div>{selected.phone}</div>
+        <input
+          type="hidden"
+          name="placeId"
+          value={selected.id} />
+        <input
+          type="file"
+          style={{ display: 'none' }}
+          accept="image/jpg,impge/png,image/jpeg"
+          name="imgFile"
+          onChange={onChange}
+          ref={profileImgFileInput}
+        />
+        <ScoreSelect />
+        <button>등록</button> {/* 버튼이 한개면 자동으로 그 버튼에 onsubmit 기능이 생긴다. */}
+      </form>
+      {/* <button onClick={setToggleTab(1)}/> */}
+    </>
+  )
 }
 
 
