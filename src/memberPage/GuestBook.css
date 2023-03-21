@@ -7,34 +7,46 @@
     height: 100vh;
     width: 500px;
   }
-  
+
   #GuestBook_top {
-    display: flex;
-    padding-top: 10px;
+    position: relative;
+    padding-top: 6px;
+    margin-bottom: 37px;
   }
 
   #GuestBook_title {
-    position: relative;
-    left: 35px;
-    padding-top: 5px;
+    position: absolute;
+  top: 11px;
+  left: 38px;
+
+  font-size: 18px;
+  font-weight: bolder;
+  color: rgb(98, 119, 44);
   }
 
   #GuestBook_body {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    margin: 0 15px;
+    align-items: start;
+    grid-template-columns: 150px 150px 150px;
+    gap: 10px;
+    margin-top: 15px;
   }
 
-  #GuestBook_item {
-    background-color: rgb(255, 230, 5);
-    min-width: 150px;
-    min-height: 100px;
-    margin: 5px;
+  #GuestBook_add{
+    display: block;
+    width: 480px;
+    margin: 0 10px;
   }
 
-  #GuestBook_btn {
-    opacity: 80%;
+  #GuestBook_add > input{
+    width: 400px;
   }
 
-  #GuestBook_btn :hover {
-    opacity: 100%;
+  #GuestBook_add > button{
+    width: 80px;
+  }
+
+  #GuestBook_text {
+    margin: 3px;
   }
