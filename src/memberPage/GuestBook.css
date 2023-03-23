@@ -45,6 +45,10 @@
 
   #GuestBook_add > button{
     width: 80px;
+    background-color: rgb(98, 119, 44);
+    color: white;
+    border: none;
+    border-radius: 5px;
   }
 
   #GuestBook_text {
