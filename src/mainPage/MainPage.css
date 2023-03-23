@@ -57,19 +57,22 @@
 }
 
 .main-banner {
-  position: relative;
   background: rgb(228, 234, 193);
   text-align: center;
   font-size: 30px;
-  font-weight: 3000;
 
   height: 800px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-banner header {
+  position: relative;
 }
 
 .bannerTop {
-  position: absolute;
-  top: 220px;
-  left: 350px;
   font-size: 35px;
   font-weight: bolder;
   text-align: left;
@@ -77,17 +80,13 @@
 
 .bannerMarker {
   position: absolute;
-  top: 195px;
-  left: 624px;
   width: 35px;
+  top: -10%;
+  left: 75%
 }
 
 .bannerBottom {
-  position: absolute;
-  top: 337px;
-  left: 351px;
   font-size: 18px;
-  font-weight: 500;
   text-align: left;
 }
 
@@ -129,22 +128,24 @@
 .bannerExample {
   display: flex;
   flex-direction: row;
+  float: right;
+  margin-top: 5%;
+}
+
+.bannerExample img {
+  width: 300px;
+  height: 700px;
+  object-fit: cover;
 }
 
 .bannerEx1 {
-  position: absolute;
   z-index: 3;
-  right: 500px;
-  top: 30px;
-
-  /* box-shadow: 5px 5px 5px 5px black; */
+  min-width: 400px;
 }
 
 .bannerEx2 {
-  position: absolute;
-  z-index: 2;
-  right: 220px;
-  top: 80px;
+  margin-left: -50px;
+  margin-top: 50px;
 }
 
 

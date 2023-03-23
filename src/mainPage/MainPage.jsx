@@ -37,16 +37,16 @@ function MainPage() {
           <header>
             <div className="bannerTop">꼭꼭 숨겨놓았던<br />
               나만의 맛집이 있나요?</div>
-            <img className="bannerMarker" src="./img/marker.png" width="35px" alt="마커" /><br />
+            <img className="bannerMarker" src="./img/marker.png" width="35px" alt="마커" />
             <div className="bannerBottom">나만 알고싶었던 맛집<br />
               친한 사람들과만 몰래 나누고 싶었던 맛집<br />
               우리의 bemeal 지도로 완성해보세요.
             </div>
-            <div className="bannerExample">
-              <img className="bannerEx1" src="./img/mainPageEx1.png" width="700px" alt="예시1" /><br />
-              <img className="bannerEx2" src="./img/mainPageEx2.png" width="700px" alt="예시2" /><br />
-            </div>
           </header>
+          <div className="bannerExample">
+            <img className="bannerEx1" src="./img/mainPageEx1.png" alt="예시1" /><br />
+            <img className="bannerEx2" src="./img/mainPageEx2.png" alt="예시2" /><br />
+          </div>
         </section >
         <div className="main-car1" >
           <p> 설명 </p>

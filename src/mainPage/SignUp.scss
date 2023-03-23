@@ -14,7 +14,6 @@
 
 .signUpLogo {
   width: 200px;
-  /* height: 50px; */
 }
 
 .signupClose {
@@ -54,76 +53,70 @@
   color: rgb(98, 119, 44);
 }
 
-.SignUp_item {
-  font-size: 15px;
-  font-weight: bolder;
-}
-
-#SignUp_form {
-  overflow: scroll;
-}
-
-#SignUp_body {
-  width: 500px;
-  padding: 0.5rem 2rem;
-  overflow-y: auto;
-}
-
 #notice {
   text-align: right;
   font-size: 13px;
   font-weight: bold;
   color: rgb(215, 154, 71);
-  margin: 0px 20px 0px 0px;
 }
 
-#SignUp_items {
-  text-align: left;
-  font-weight: bold;
-  margin-left: 28px;
-
-}
-
-#SignUp_items > label {
-  display: flexbox;
-}
-
-#SignUp_items > label.must {
-  font-size: 20px;
-  color: rgb(215, 154, 71);
-}
-
-#SignUp_items > #info_birth > select {
-  width: 107px;
-  height: 35px;
-  margin: 5px 5px 10px 0px;
+.SignUp_item {
   font-size: 15px;
+  font-weight: bolder;
 }
 
-#SignUp_items > #info_gender > #male,
-#gender_not {
-  margin-left: 20px;
+#SignUp_body {
+  width: 40rem;
+  padding-left: 30px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  input:not([type="radio"]) {
+    display: block;
+    width: 99%;
+    height: 35px;
+    margin: 5px 0px 10px 0px;
+    padding-left: 5px;
+    font-size: 15px;
+  }
+
+  .half {
+    width: 47%;
+    float: left;
+  }
 }
 
-.SignUp_input {
-  text-indent: 1em;
+
+.SignUp_items {
+  text-align: left;
+  margin-left: 8px;
+
+  label {
+    display: flexbox;
+    font-weight: bold;
+    &.must {
+      font-size: 20px;
+      color: rgb(215, 154, 71);
+    }
+  }
+
+  #info_birth > select {
+    width: 115px;
+    height: 35px;
+    margin: 5px 5px 10px 0px;
+    font-size: 15px;
+  }
+
+  #male,
+  #gender_not {
+    margin-left: 105px;
+  }
 }
 
 #info_gender {
-  font-size: 15px;
-}
-
-input {
-  border: 1px solid gray;
-  border-radius: 5px;
-}
-
-#SignUp_body input:not([type="radio"]) {
-  display: block;
-  width: 20rem;
-  height: 35px;
-  margin: 5px 0px 10px 0px;
-  padding-left: 5px;
   font-size: 15px;
 }
 
@@ -132,17 +125,16 @@ input {
 }
 
 #SignUp_footer button {
-  margin-top: 30px;
-  display: absolute;
-  width: 380px;
+  width: 360px;
   height: 40px;
   background-color: rgb(98, 119, 44);
-  font-size: 16px;
-  font-weight: bolder;
-  padding-top: 5px;
+  font-size: 15px;
   color: white;
   border: none;
   border-radius: 5px;
+
+  margin-left: 27px;
+  margin-top: 10px;
 
   cursor: pointer;
 }
