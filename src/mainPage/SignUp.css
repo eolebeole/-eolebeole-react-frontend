@@ -59,6 +59,10 @@
   font-weight: bolder;
 }
 
+#SignUp_form {
+  overflow: scroll;
+}
+
 #SignUp_body {
   width: 500px;
   padding: 0.5rem 2rem;
