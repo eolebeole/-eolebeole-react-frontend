@@ -33,7 +33,7 @@ function MatMate(props) {
   };
 
   // 검색을 위한 필터기능
-  const filtered = friends.filter((user) => user.nick.includes(search));
+  const filtered = friends.filter((user) => user.nick?.includes(search));
 
   // 리스트를 가져올 때, 필요한 부분을 기점으로 가져올 리스트 개수까지 가져옴
   const list = filtered.slice(offset, offset + limit)

@@ -42,7 +42,7 @@ function FriendPlus() {
     }).then((response) => setUsers(response.data));
   }, []);
 
-  const filtered = users.filter((user) => user.nick.includes(search));
+  const filtered = users.filter((user) => user.nick?.includes(search));
   const list = filtered.slice(offset, offset + limit).map((item) => <>
     <Friend item={item} key={item.user_id} />
     <hr />
